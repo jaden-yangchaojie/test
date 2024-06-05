@@ -60,9 +60,11 @@ def handler_process(id):
     # get_daa=json.dumps(get_post_data)
     ColScenarioHandler.update_scenario_detail(get_post_data)
 
-
+def get_batch_id():
+    print(ColScenarioHandler.get_batch_ids(1,10))
 if __name__ == '__main__':
     #输入用例id
-    handler_process("102252")
+    get_batch_id()
+    # handler_process("102252")
     # handler_process("102304")
     # handler_process("100651")

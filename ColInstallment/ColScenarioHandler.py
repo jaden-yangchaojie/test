@@ -6,7 +6,7 @@ import os
 import string
 import sys
 
-
+import jsonpath
 import requests
 from Crypto.Cipher import AES
 import json
@@ -22,7 +22,7 @@ from requests_toolbelt import MultipartEncoder
 accessKey = "7CxLnIMxi4mb72oN"
 secretKey = "nGJf58NMzz1xnnb9"
 host = "http://10.82.95.229:8081"
-
+projectId=""
 
 def aesEncrypt(text, secretKey, iv):
     BS = AES.block_size  # 这个等于16
@@ -93,6 +93,26 @@ def get_scenario_detail_all_info(scenario_id):
     # get_list=[]
     # fibonacci(get_data, get_list)
     return  data
+def get_batch_ids(page_no,page_size):
+    s = requests.session()
+    s = request_http(s, accessKey, secretKey)
+
+    url = host + "/api/api/automation/list/{}/{}".format(page_no,page_size)
+    post_data = {"filters": {"status": ["Prepare", "Underway", "Completed"]},
+                 "orders": [{"name": "name", "type": "asc"}], "moduleIds": [],
+                 "projectId": "11406dc7-8340-401f-813f-3511a97d3fbb",
+                 "selectThisWeedData": false, "executeStatus": null, "selectDataRange": null, "selectAll": false,
+                 "unSelectIds": [], "name": "", "combine": {}
+                 }
+    pp = json.dumps(post_data)
+    r = s.post(url, data=pp)
+    listObject = r.json().get("data").get("listObject")
+    if len(listObject) == 0:
+        print("没有搜索该用例id")
+        sys.exit()
+    get_ref_id=jsonpath.jsonpath(listObject,"$..refId")
+
+    return  get_ref_id
 def update_scenario_detail(post_data):
 
     timeStamp = int(round(time.time() * 1000))
