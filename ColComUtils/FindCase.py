@@ -1,44 +1,39 @@
 import json
 
 from ColInstallment import ColScenarioHandler
-
+def get_batch_id():
+    get_batch_ids=ColScenarioHandler.get_batch_ids(1,50)
+    return  get_batch_ids
 def find_process(id):
     scenario_id= ColScenarioHandler.get_scenario_detail_id_by_search_id(id) if id.isdigit() else id
     data = ColScenarioHandler.get_scenario_detail_all_info(scenario_id)
     get_sce_data = data.get("data").get("scenarioDefinition")
     result=json.loads(get_sce_data)
     get_list = []
-
+    cur_time_line = ""
     find_handler(result, get_list)
 
-def get_batch_id():
-    get_batch_ids=ColScenarioHandler.get_batch_ids(1,50)
-    return  get_batch_ids
+cur_time_line=""
 
 def find_handler(get_data, dds):
+    global cur_time_line
     if get_data["type"] == "HTTPSamplerProxy" and get_data["enable"] == True:
         get_path = get_data["path"]
         if get_path=="/api/admin/system/faketime":
             get_raw = json.loads(get_data["body"]["raw"])
             cur_time_line=str(get_raw["time"])
-
-        if get_path.count("/transactions/adjustments/credit"):
+        elif get_path.count("/transactions/adjustments/credit"):
                 if str(get_data["body"]["raw"]).count("PAYMENT"):
-                    if cur_time_line.count("-05"):
-                        print(get_data["name"])
+                    if cur_time_line.count('-05')>0:
+                        print(str(get_data["name"])+"这里有")
+    #
+    # if get_data["type"]=="JDBCSampler" and get_data["enable"] == True:
+    #     get_sql = get_data["query"]
+    #     # if str(get_sql).count(" set ")>0:
+    #     #     get_dict = {"path":"update_sql","update_sql":  get_sql}
+    #     #     dds.append(get_dict)
 
-
-        # get_body = get_data["body"]
-        # get_dict = {"path": get_path, "body": get_body}
-        #
-        # dds.append(get_dict)
-    if get_data["type"]=="JDBCSampler" and get_data["enable"] == True:
-        get_sql = get_data["query"]
-        if str(get_sql).count(" set ")>0:
-            get_dict = {"path":"update_sql","update_sql":  get_sql}
-            dds.append(get_dict)
-
-    elif get_data["type"] == "scenario" and get_data["enable"] == True:
+    if get_data["type"] == "scenario" and get_data["enable"] == True:
         hashTree = get_data["hashTree"]
         for subScenario in hashTree:
             find_handler(subScenario, dds)

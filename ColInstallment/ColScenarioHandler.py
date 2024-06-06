@@ -88,10 +88,6 @@ def get_scenario_detail_all_info(scenario_id):
     r = s.get(url)
     print("用例名称："+r.json().get("data").get("name"))
     data = r.json()
-    #         .get("data").get("scenarioDefinition"))
-    # get_data = json.loads(data)
-    # get_list=[]
-    # fibonacci(get_data, get_list)
     return  data
 def get_batch_ids(page_no,page_size):
     s = requests.session()
@@ -102,7 +98,11 @@ def get_batch_ids(page_no,page_size):
                  "orders": [{"name": "name", "type": "asc"}], "moduleIds": [],
                  "projectId": "11406dc7-8340-401f-813f-3511a97d3fbb",
                  "selectThisWeedData": false, "executeStatus": null, "selectDataRange": null, "selectAll": false,
-                 "unSelectIds": [], "name": "", "combine": {}
+                 "unSelectIds": [], "name": "", "combine": {},
+                 "moduleIds": ["cab35b7a-0b79-4b59-86bf-ef2cb98a89a5", "215d2b0f-94fe-44a0-9ae5-5a38359dbda2",
+                               "1014bc27-e5b0-4fe3-abb8-5d93bc507fdc", "05f88e9a-4581-4095-8149-cc8557ee8262",
+                               "095a64ef-3ca7-41ed-857d-27e3b9ea6af6", "db96f904-7441-41b1-bb3e-33af3eeb3e17",
+                               "e00c1576-be16-4eb5-b8e1-3785d330ec76", "c83c8e7f-7026-414e-b74a-457c28ba19e2"]
                  }
     pp = json.dumps(post_data)
     r = s.post(url, data=pp)
