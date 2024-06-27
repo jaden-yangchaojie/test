@@ -127,18 +127,10 @@ def update_scenario_detail(post_data):
     print(json_data)
     s=requests.session()
     m = MultipartEncoder(fields={"request":('blob',json_data,'application/json'),"filename":"blob"}, boundary=boundary)
-    # header = {'Content-Type': m.content_type,'ACCEPT': 'application/json', 'accessKey': accessKey,
-    #           'signature': signature.decode('UTF-8'), 'Connection': 'close',
-    #           "Workspace": "6852763f-a091-11ed-aa14-0242ac1e0a02"}
     header = {'Content-Type': m.content_type,'accessKey': accessKey,
               'signature': signature.decode('UTF-8'),"Workspace": "6852763f-a091-11ed-aa14-0242ac1e0a02"}
     s.headers.update(header)
-    # print(m.to_string())
-    # mm=MultipartFormData.to_form_data(data={"request":("blob",json.dumps(post_data),'application/json'),"filename":"blob"}, boundary=boundary)
-    # kk={"request":("blob", json.dumps(post_data), 'application/json')}
-
     req = s.post(url=url,data=m)
-    # print(req.json())
     return req
 
 def fibonacci(get_data, dds):
