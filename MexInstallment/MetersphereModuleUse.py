@@ -2,6 +2,8 @@ import json
 
 from ColInstallment import ColScenarioHandler
 from MexInstallment import MetersphereUtils
+
+#模块化 组装用例
 import jsonpickle
 key = 'scenarioDefinition'
 def update(key,dict_data):
@@ -22,9 +24,9 @@ def update(key,dict_data):
                     if key in i and isinstance(i,dict):
                         #调用自身修改函数，将key的值修改成'张三'
                         update(key,i)
-                    else:
-                        #否者则调用获取value函数
-                        get_value(i)
+                    # else:
+                    #     #否者则调用获取value函数
+                    #     get_value(i)
             elif isinstance(values,dict):
                 if key in values:
                     update(key,values)
@@ -43,74 +45,65 @@ def update(key,dict_data):
                     if key in i:
                         # 调用修改函数修改key的值
                         update(key, i)
-                    else:
-                        # 否则调用获取values的值函数
-                        get_value(i)
+                    # else:
+                    #     # 否则调用获取values的值函数
+                    #     get_value(i)
             # 判断values值是否为字典
             elif isinstance(values, dict):
                 # 判断需要修改的key是否在values中
                 if key in values:
                     # 调用修改函数修改key的值
                     update(key, values)
-                else:
-                    # 获取values值的函数
-                    get_value(values)
+                # else:
+                #     # 获取values值的函数
+                #     get_value(values)
     return dict_data
 
-def get_value(tt):
-    #循环获取values的值
-    for values in tt.values():
-        #判断循环出的value的值是否为列表或者元祖
-        if isinstance(values, (list,tuple)):
-            #如果为列表或者元祖则循环获取列表或者元祖中的值
-            for i in values:
-                #判断需要修改的值是否在循环出的值中,且i为字典
-                if key in i and isinstance(i,dict):
-                    #调用修改函数，将key的值修改为'张三'
-                    update(key, i)
-                else:
-                    #否则调用获取value函数
-                    get_value(i)
-        elif isinstance(values,dict):
-            if key in values:
-                update(key, values)
-            else:
-                get_value(values)
+def module_combine(result):
+    hash_tree_list = []
+    # 3655a904-6b4c-4afb-99a3-a4a41bbf6a35
+    hash_tree_1 = MetersphereUtils.get_scenario_list(["2cebfeb3-1805-4a93-bbb1-5bade52451f4"])[0]
+    hash_tree_1 = json.loads(hash_tree_1["scenarioDefinition"])
+    update("scenarioDefinition", hash_tree_1)
+    hash_tree_list.append(hash_tree_1)
+    # hash_tree_2 = MetersphereUtils.get_scenario_list(["1eefc592-4db0-4098-9aff-87ba14bd174e"])[0]
+    # hash_tree_2 = json.loads(hash_tree_2["scenarioDefinition"])
+    # update("scenarioDefinition", hash_tree_2)
+    # hash_tree_list.append(hash_tree_2)
+
+
+    return hash_tree_list
 
 if __name__ == '__main__':
+    ########新建场景
     # post_data={"principal": "admin", "apiScenarioModuleId": "0fb10472-44f4-4544-a1c6-54de82cfb218", "follows": [],
     #  "modulePath": "/墨西哥分期/数据准备/断言&DB操作", "name": "test_for1",
     #  "projectId": "11406dc7-8340-401f-813f-3511a97d3fbb", "id": "16c9fb27", "status": "Underway", "level": "P0",
     #  "bodyFileRequestIds": [], "scenarioFileIds": []}
     # get_result=MetersphereUtils.create(post_data)
     # print(get_result)
+
     data = ColScenarioHandler.get_scenario_detail_all_info("3d333c4a-d599-4b3b-b36b-04a9d1fe87b1")
     get_sce_data = data.get("data").get("scenarioDefinition")
     result = json.loads(get_sce_data)
-    # print(get_result)
-    hash_tree_list=[]
-    # 3655a904-6b4c-4afb-99a3-a4a41bbf6a35
-    hash_tree_1 = MetersphereUtils.get_scenario_list(["29e2c748-2034-404d-9fd0-bf833dd443bd"])[0]
-    hash_tree_1=json.loads(hash_tree_1["scenarioDefinition"])
-    update("scenarioDefinition",hash_tree_1)
-    hash_tree_list.append(hash_tree_1)
-    # hash_tree_2 = MetersphereUtils.get_scenario_list(["1eefc592-4db0-4098-9aff-87ba14bd174e"])[0]
-    # hash_tree_list.append(hash_tree_2)
+    #####前置
 
+    #######组合
+    hash_tree_list=module_combine(result)
+
+
+
+
+    ########update场景
     # todo
-    result["hashTree"]=hash_tree_list
+    result["hashTree"]=hash_tree_list[0]["hashTree"]
 
     data["data"]["scenarioDefinition"] = result
     # data["data"]["scenarioDefinition"] = json.dumps(result, ensure_ascii=False)
     get_post_data = data["data"]
-    # get_result["scenarioDefinition"] = result
-    # get_post_data = get_result
-    # get_daa = json.dumps(get_post_data)
 
-    json_data = json.dumps(get_post_data, ensure_ascii=False)
-    # print(json_data)
 
-    get_update_info=MetersphereUtils.update(json_data)
+    get_update_info=MetersphereUtils.update(get_post_data)
     print("*************")
     print(get_update_info)
 

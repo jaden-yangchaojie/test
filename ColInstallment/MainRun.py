@@ -9,7 +9,7 @@ def handler_process(id):
     HandlerProcess.handler(get_list, get_init_data)
 
 if __name__ == '__main__':
-    #输入用例id
-    handler_process("102345")
+    #输入用例id,必须是哥伦比亚相关
+    handler_process("101437")
     # handler_process("100651")
 

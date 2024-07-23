@@ -1,6 +1,7 @@
 import json
 
 from ColInstallment import ColScenarioHandler
+from MexInstallment import MetersphereUtils
 
 
 def get_batch_id():
@@ -13,13 +14,22 @@ def find_process(id):
     data = ColScenarioHandler.get_scenario_detail_all_info(scenario_id)
     get_sce_data = data.get("data").get("scenarioDefinition")
     result = json.loads(get_sce_data)
-    get_list = []
-    cur_time_line = ""
+    if str(result["name"]).count("DQ")>0:
+        get_list = []
+        find_handler2_interface(result, get_list)
 
-    find_handler1(result, get_list)
+        data["data"]["scenarioDefinition"] = result
+
+        get_post_data = data["data"]
+
+        get_update_info = MetersphereUtils.update(get_post_data)
+        # # get_daa=json.dumps(get_post_data)
+        # get_info_udpate = ColScenarioHandler.update_scenario_detail(get_post_data)
+        print(get_update_info)
+        for get_one in get_list:
+            print(get_one)
 
 
-cur_time_line = ""
 
 
 def find_handler(get_data, dds):
@@ -60,9 +70,32 @@ def find_handler1(get_data, dds):
         for subScenario in hashTree:
             find_handler(subScenario, dds)
 
+replace_keyword={"entityId":"COCC20230000","tenantId":"STCOFINCORE0","taskSource":"CREDIT_CARD_STATEMENT","taskType":"DELINQUENCY","batchIds":[],"batchDetailIds":[],"referenceKeys":[],"taskStatus":["INACTIVE"]}
+def find_handler2_interface(get_data, dds):
+    global cur_time_line
+    if get_data["type"] == "HTTPSamplerProxy" and get_data["enable"] == True:
+        get_path = get_data["path"]
+        if get_path == "/xxl-job-admin/jobinfo/trigger":
+            get_list = get_data["body"]["kvs"]
+            if get_list[0]["value"]=="1822" :
+                if  str(get_list[1]["value"]).count('[""]')>0:
+                    get_list[1]["value"]=json.dumps(replace_keyword)
+                    print()
 
+
+    if get_data["type"] == "scenario" and get_data["enable"] == True:
+        hashTree = get_data["hashTree"]
+        for subScenario in hashTree:
+            find_handler2_interface(subScenario, dds)
 if __name__ == '__main__':
     # 输入用例id
     get_list_id = get_batch_id()
+
     for get_one_id in get_list_id:
         find_process(get_one_id)
+
+1822
+{"entityId":"COCC20230000","tenantId":"STCOFINCORE0","taskSource":"CREDIT_CARD_STATEMENT","taskType":"DELINQUENCY","batchIds":[],"batchDetailIds":[""],"referenceKeys":[],"taskStatus":["INACTIVE"]}
+
+1767
+{   "entityId":"${entityId}",   "tenantId":"${tenantId}",   "taskSource":"CREDIT_CARD_CONTROL",   "taskType":"DQ_STATUS_UPDATE",   "taskNum":"1000",   "processOrder":"DEFAULT" }
