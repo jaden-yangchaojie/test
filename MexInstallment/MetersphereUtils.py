@@ -13,7 +13,7 @@ from requests_toolbelt import MultipartEncoder
 
 accessKey = "7CxLnIMxi4mb72oN"
 secretKey = "nGJf58NMzz1xnnb9"
-host = "http://10.82.95.229:8081"
+host = "http://k8s-metersph-metersph-a8a69a9569-2563ee3ca1fe1577.elb.us-east-1.amazonaws.com:8000"
 projectId = ""
 false = False
 null = None
@@ -157,8 +157,31 @@ def get_batch_ids(page_no, page_size):
     get_ref_id = jsonpath.jsonpath(listObject, "$..refId")
 
     return get_ref_id
+def get_test_plan_report_db_sce_failure_cases_report_ids(get_id):
+    s = requests.session()
+    s = request_http(s, accessKey, secretKey)
+
+    url = host + "/track/test/plan/report/db/{}".format(get_id)
+
+    r = s.get(url)
+    listObject = r.json().get("data").get("scenarioFailureCases")
+    if len(listObject) == 0:
+        print("没有搜索该报告id")
+        sys.exit()
+    get_report_id = jsonpath.jsonpath(listObject, "$..reportId")
+
+    return get_report_id
+def get_test_plan_report_id_get_content(get_id):
+    s = requests.session()
+    s = request_http(s, accessKey, secretKey)
+
+    url = host + "/api/api/scenario/report/get/{}".format(get_id)
+
+    r = s.get(url)
+    get_result = r.json().get("data")
 
 
+    return get_result
 def test_plan_scenario_list(page_no, page_size, plan_id):
     s = requests.session()
     s = request_http(s, accessKey, secretKey)

@@ -1,0 +1,140 @@
+2022-09-27 14:09:39.946 [main] ERROR [,] c.s.f.c.shared.aws.SecretsManagerUtil - secret  load fail, secretID:CoreBankingFundcoreSecretQa
+2022-09-27 14:09:40.146 [main] ERROR [,] org.springframework.boot.SpringApplication - Application run failed
+2022-09-27 14:10:42.983 [main] ERROR [,] c.s.f.c.shared.aws.SecretsManagerUtil - secret  load fail, secretID:CoreBankingFundcoreSecretQa
+2022-09-27 14:10:43.177 [main] ERROR [,] org.springframework.boot.SpringApplication - Application run failed
+2022-09-27 14:11:56.298 [main] ERROR [,] c.s.f.c.shared.aws.SecretsManagerUtil - secret  load fail, secretID:CoreBankingFundcoreSecretQa
+2022-09-27 14:11:56.587 [main] ERROR [,] org.springframework.boot.SpringApplication - Application run failed
+2022-09-27 14:13:21.187 [main] ERROR [,] c.s.f.c.shared.aws.SecretsManagerUtil - secret  load fail, secretID:CoreBankingFundcoreSecretQa
+2022-09-27 14:13:21.434 [main] ERROR [,] org.springframework.boot.SpringApplication - Application run failed
+2022-09-27 14:15:03.687 [main] ERROR [,] c.s.f.c.shared.aws.SecretsManagerUtil - secret  load fail, secretID:CoreBankingFundcoreSecretQa
+2022-09-27 14:15:03.890 [main] ERROR [,] org.springframework.boot.SpringApplication - Application run failed
+2022-09-27 14:17:35.718 [main] ERROR [,] c.s.f.c.shared.aws.SecretsManagerUtil - secret  load fail, secretID:CoreBankingFundcoreSecretQa
+2022-09-27 14:17:35.914 [main] ERROR [,] org.springframework.boot.SpringApplication - Application run failed
+2022-09-27 14:21:24.519 [main] ERROR [,] c.s.f.c.shared.aws.SecretsManagerUtil - secret  load fail, secretID:CoreBankingFundcoreSecretQa
+2022-09-27 14:21:24.735 [main] ERROR [,] org.springframework.boot.SpringApplication - Application run failed
+2022-09-27 14:27:35.166 [main] ERROR [,] c.s.f.c.shared.aws.SecretsManagerUtil - secret  load fail, secretID:CoreBankingFundcoreSecretQa
+2022-09-27 14:27:35.324 [main] ERROR [,] org.springframework.boot.SpringApplication - Application run failed
+2022-09-27 14:33:45.755 [main] ERROR [,] c.s.f.c.shared.aws.SecretsManagerUtil - secret  load fail, secretID:CoreBankingFundcoreSecretQa
+2022-09-27 14:33:45.929 [main] ERROR [,] org.springframework.boot.SpringApplication - Application run failed
+2022-09-27 14:39:51.699 [main] ERROR [,] c.s.f.c.shared.aws.SecretsManagerUtil - secret  load fail, secretID:CoreBankingFundcoreSecretQa
+2022-09-27 14:39:52.003 [main] ERROR [,] org.springframework.boot.SpringApplication - Application run failed
+2022-09-27 14:45:57.202 [main] ERROR [,] c.s.f.c.shared.aws.SecretsManagerUtil - secret  load fail, secretID:CoreBankingFundcoreSecretQa
+2022-09-27 14:45:57.454 [main] ERROR [,] org.springframework.boot.SpringApplication - Application run failed
+2022-09-27 14:52:01.671 [main] ERROR [,] c.s.f.c.shared.aws.SecretsManagerUtil - secret  load fail, secretID:CoreBankingFundcoreSecretQa
+2022-09-27 14:52:01.901 [main] ERROR [,] org.springframework.boot.SpringApplication - Application run failed
+2022-09-27 14:58:13.618 [main] ERROR [,] c.s.f.c.shared.aws.SecretsManagerUtil - secret  load fail, secretID:CoreBankingFundcoreSecretQa
+2022-09-27 14:58:13.803 [main] ERROR [,] org.springframework.boot.SpringApplication - Application run failed
+2022-09-27 15:04:18.179 [main] ERROR [,] c.s.f.c.shared.aws.SecretsManagerUtil - secret  load fail, secretID:CoreBankingFundcoreSecretQa
+2022-09-27 15:04:18.341 [main] ERROR [,] org.springframework.boot.SpringApplication - Application run failed
+2022-09-27 15:10:26.294 [main] ERROR [,] c.s.f.c.shared.aws.SecretsManagerUtil - secret  load fail, secretID:CoreBankingFundcoreSecretQa
+2022-09-27 15:10:26.494 [main] ERROR [,] org.springframework.boot.SpringApplication - Application run failed
+2022-09-27 15:16:31.823 [main] ERROR [,] c.s.f.c.shared.aws.SecretsManagerUtil - secret  load fail, secretID:CoreBankingFundcoreSecretQa
+2022-09-27 15:16:32.107 [main] ERROR [,] org.springframework.boot.SpringApplication - Application run failed
+2022-09-27 15:22:35.374 [main] ERROR [,] c.s.f.c.shared.aws.SecretsManagerUtil - secret  load fail, secretID:CoreBankingFundcoreSecretQa
+2022-09-27 15:22:35.604 [main] ERROR [,] org.springframework.boot.SpringApplication - Application run failed
+2022-09-27 15:28:45.682 [main] ERROR [,] c.s.f.c.shared.aws.SecretsManagerUtil - secret  load fail, secretID:CoreBankingFundcoreSecretQa
+2022-09-27 15:28:45.930 [main] ERROR [,] org.springframework.boot.SpringApplication - Application run failed
+2022-09-27 15:34:54.380 [main] ERROR [,] c.s.f.c.shared.aws.SecretsManagerUtil - secret  load fail, secretID:CoreBankingFundcoreSecretQa
+2022-09-27 15:34:54.590 [main] ERROR [,] org.springframework.boot.SpringApplication - Application run failed
+2022-09-27 15:41:04.502 [main] ERROR [,] c.s.f.c.shared.aws.SecretsManagerUtil - secret  load fail, secretID:CoreBankingFundcoreSecretQa
+2022-09-27 15:41:04.712 [main] ERROR [,] org.springframework.boot.SpringApplication - Application run failed
+2022-09-27 15:47:07.650 [main] ERROR [,] c.s.f.c.shared.aws.SecretsManagerUtil - secret  load fail, secretID:CoreBankingFundcoreSecretQa
+2022-09-27 15:47:07.903 [main] ERROR [,] org.springframework.boot.SpringApplication - Application run failed
+2022-09-27 15:53:23.999 [main] ERROR [,] c.s.f.c.shared.aws.SecretsManagerUtil - secret  load fail, secretID:CoreBankingFundcoreSecretQa
+2022-09-27 15:53:24.315 [main] ERROR [,] org.springframework.boot.SpringApplication - Application run failed
+2022-09-27 15:59:28.013 [main] ERROR [,] c.s.f.c.shared.aws.SecretsManagerUtil - secret  load fail, secretID:CoreBankingFundcoreSecretQa
+2022-09-27 15:59:28.283 [main] ERROR [,] org.springframework.boot.SpringApplication - Application run failed
+2022-09-27 16:05:37.512 [main] ERROR [,] c.s.f.c.shared.aws.SecretsManagerUtil - secret  load fail, secretID:CoreBankingFundcoreSecretQa
+2022-09-27 16:05:37.924 [main] ERROR [,] org.springframework.boot.SpringApplication - Application run failed
+2022-09-27 16:11:39.644 [main] ERROR [,] c.s.f.c.shared.aws.SecretsManagerUtil - secret  load fail, secretID:CoreBankingFundcoreSecretQa
+2022-09-27 16:11:39.858 [main] ERROR [,] org.springframework.boot.SpringApplication - Application run failed
+2022-09-27 16:17:45.373 [main] ERROR [,] c.s.f.c.shared.aws.SecretsManagerUtil - secret  load fail, secretID:CoreBankingFundcoreSecretQa
+2022-09-27 16:17:45.606 [main] ERROR [,] org.springframework.boot.SpringApplication - Application run failed
+2022-09-27 16:23:58.365 [main] ERROR [,] c.s.f.c.shared.aws.SecretsManagerUtil - secret  load fail, secretID:CoreBankingFundcoreSecretQa
+2022-09-27 16:23:58.654 [main] ERROR [,] org.springframework.boot.SpringApplication - Application run failed
+2022-09-27 16:30:00.445 [main] ERROR [,] c.s.f.c.shared.aws.SecretsManagerUtil - secret  load fail, secretID:CoreBankingFundcoreSecretQa
+2022-09-27 16:30:00.672 [main] ERROR [,] org.springframework.boot.SpringApplication - Application run failed
+2022-09-27 16:36:02.457 [main] ERROR [,] c.s.f.c.shared.aws.SecretsManagerUtil - secret  load fail, secretID:CoreBankingFundcoreSecretQa
+2022-09-27 16:36:02.720 [main] ERROR [,] org.springframework.boot.SpringApplication - Application run failed
+2022-09-27 16:42:09.658 [main] ERROR [,] c.s.f.c.shared.aws.SecretsManagerUtil - secret  load fail, secretID:CoreBankingFundcoreSecretQa
+2022-09-27 16:42:09.887 [main] ERROR [,] org.springframework.boot.SpringApplication - Application run failed
+2022-09-27 16:48:20.467 [main] ERROR [,] c.s.f.c.shared.aws.SecretsManagerUtil - secret  load fail, secretID:CoreBankingFundcoreSecretQa
+2022-09-27 16:48:20.761 [main] ERROR [,] org.springframework.boot.SpringApplication - Application run failed
+2022-09-27 16:54:25.389 [main] ERROR [,] c.s.f.c.shared.aws.SecretsManagerUtil - secret  load fail, secretID:CoreBankingFundcoreSecretQa
+2022-09-27 16:54:25.624 [main] ERROR [,] org.springframework.boot.SpringApplication - Application run failed
+2022-09-27 17:00:28.102 [main] ERROR [,] c.s.f.c.shared.aws.SecretsManagerUtil - secret  load fail, secretID:CoreBankingFundcoreSecretQa
+2022-09-27 17:00:28.324 [main] ERROR [,] org.springframework.boot.SpringApplication - Application run failed
+2022-09-27 17:06:29.012 [main] ERROR [,] c.s.f.c.shared.aws.SecretsManagerUtil - secret  load fail, secretID:CoreBankingFundcoreSecretQa
+2022-09-27 17:06:29.225 [main] ERROR [,] org.springframework.boot.SpringApplication - Application run failed
+2022-09-27 17:12:32.794 [main] ERROR [,] c.s.f.c.shared.aws.SecretsManagerUtil - secret  load fail, secretID:CoreBankingFundcoreSecretQa
+2022-09-27 17:12:33.066 [main] ERROR [,] org.springframework.boot.SpringApplication - Application run failed
+2022-09-27 17:18:41.759 [main] ERROR [,] c.s.f.c.shared.aws.SecretsManagerUtil - secret  load fail, secretID:CoreBankingFundcoreSecretQa
+2022-09-27 17:18:42.011 [main] ERROR [,] org.springframework.boot.SpringApplication - Application run failed
+2022-09-27 17:24:45.266 [main] ERROR [,] c.s.f.c.shared.aws.SecretsManagerUtil - secret  load fail, secretID:CoreBankingFundcoreSecretQa
+2022-09-27 17:24:45.546 [main] ERROR [,] org.springframework.boot.SpringApplication - Application run failed
+2022-09-27 17:30:48.304 [main] ERROR [,] c.s.f.c.shared.aws.SecretsManagerUtil - secret  load fail, secretID:CoreBankingFundcoreSecretQa
+2022-09-27 17:30:48.475 [main] ERROR [,] org.springframework.boot.SpringApplication - Application run failed
+2022-09-27 17:36:51.089 [main] ERROR [,] c.s.f.c.shared.aws.SecretsManagerUtil - secret  load fail, secretID:CoreBankingFundcoreSecretQa
+2022-09-27 17:36:51.355 [main] ERROR [,] org.springframework.boot.SpringApplication - Application run failed
+2022-09-27 17:42:57.437 [main] ERROR [,] c.s.f.c.shared.aws.SecretsManagerUtil - secret  load fail, secretID:CoreBankingFundcoreSecretQa
+2022-09-27 17:42:57.700 [main] ERROR [,] org.springframework.boot.SpringApplication - Application run failed
+2022-09-27 17:49:05.392 [main] ERROR [,] c.s.f.c.shared.aws.SecretsManagerUtil - secret  load fail, secretID:CoreBankingFundcoreSecretQa
+2022-09-27 17:49:05.577 [main] ERROR [,] org.springframework.boot.SpringApplication - Application run failed
+2022-09-27 17:55:10.334 [main] ERROR [,] c.s.f.c.shared.aws.SecretsManagerUtil - secret  load fail, secretID:CoreBankingFundcoreSecretQa
+2022-09-27 17:55:10.622 [main] ERROR [,] org.springframework.boot.SpringApplication - Application run failed
+2022-09-27 18:01:12.904 [main] ERROR [,] c.s.f.c.shared.aws.SecretsManagerUtil - secret  load fail, secretID:CoreBankingFundcoreSecretQa
+2022-09-27 18:01:13.093 [main] ERROR [,] org.springframework.boot.SpringApplication - Application run failed
+2022-09-27 18:07:23.865 [main] ERROR [,] c.s.f.c.shared.aws.SecretsManagerUtil - secret  load fail, secretID:CoreBankingFundcoreSecretQa
+2022-09-27 18:07:24.147 [main] ERROR [,] org.springframework.boot.SpringApplication - Application run failed
+2022-09-15 12:00:32.269 [main] ERROR [,] c.s.f.c.shared.aws.SecretsManagerUtil - secret  load fail, secretID:CoreBankingFundcoreSecretQa
+2022-09-15 12:00:32.530 [main] ERROR [,] org.springframework.boot.SpringApplication - Application run failed
+2022-09-10 12:00:33.868 [main] ERROR [,] c.s.f.c.shared.aws.SecretsManagerUtil - secret  load fail, secretID:CoreBankingFundcoreSecretQa
+2022-09-10 12:00:34.144 [main] ERROR [,] org.springframework.boot.SpringApplication - Application run failed
+2022-09-26 12:00:23.653 [main] ERROR [,] c.s.f.c.shared.aws.SecretsManagerUtil - secret  load fail, secretID:CoreBankingFundcoreSecretQa
+2022-09-26 12:00:23.854 [main] ERROR [,] org.springframework.boot.SpringApplication - Application run failed
+2022-09-15 12:00:28.945 [main] ERROR [,] c.s.f.c.shared.aws.SecretsManagerUtil - secret  load fail, secretID:CoreBankingFundcoreSecretQa
+2022-09-15 12:00:29.165 [main] ERROR [,] org.springframework.boot.SpringApplication - Application run failed
+2022-10-20 12:00:25.033 [main] ERROR [,] c.s.f.c.shared.aws.SecretsManagerUtil - secret  load fail, secretID:CoreBankingFundcoreSecretQa
+2022-10-20 12:00:25.222 [main] ERROR [,] org.springframework.boot.SpringApplication - Application run failed
+2022-11-18 12:02:24.157 [main] ERROR [,] c.s.f.c.shared.aws.SecretsManagerUtil - secret  load fail, secretID:CoreBankingFundcoreSecretQa
+2022-11-18 12:02:24.354 [main] ERROR [,] org.springframework.boot.SpringApplication - Application run failed
+2022-09-25 12:00:41.123 [main] ERROR [,] c.s.f.c.shared.aws.SecretsManagerUtil - secret  load fail, secretID:CoreBankingFundcoreSecretQa
+2022-09-25 12:00:41.319 [main] ERROR [,] org.springframework.boot.SpringApplication - Application run failed
+2022-09-19 12:00:21.422 [main] ERROR [,] c.s.f.c.shared.aws.SecretsManagerUtil - secret  load fail, secretID:CoreBankingFundcoreSecretQa
+2022-09-19 12:00:21.645 [main] ERROR [,] org.springframework.boot.SpringApplication - Application run failed
+2022-09-15 12:00:17.137 [main] ERROR [,] c.s.f.c.shared.aws.SecretsManagerUtil - secret  load fail, secretID:CoreBankingFundcoreSecretQa
+2022-09-15 12:00:17.355 [main] ERROR [,] org.springframework.boot.SpringApplication - Application run failed
+2022-10-26 12:00:48.768 [main] ERROR [,] c.s.f.c.shared.aws.SecretsManagerUtil - secret  load fail, secretID:CoreBankingFundcoreSecretQa
+2022-10-26 12:00:48.945 [main] ERROR [,] org.springframework.boot.SpringApplication - Application run failed
+2022-09-15 12:00:16.297 [main] ERROR [,] c.s.f.c.shared.aws.SecretsManagerUtil - secret  load fail, secretID:CoreBankingFundcoreSecretQa
+2022-09-15 12:00:16.517 [main] ERROR [,] org.springframework.boot.SpringApplication - Application run failed
+2022-09-26 00:11:10.804 [main] ERROR [,] c.s.f.c.shared.aws.SecretsManagerUtil - secret  load fail, secretID:CoreBankingFundcoreSecretQa
+2022-09-26 00:11:11.035 [main] ERROR [,] org.springframework.boot.SpringApplication - Application run failed
+2022-11-01 12:01:47.583 [main] ERROR [,] c.s.f.c.shared.aws.SecretsManagerUtil - secret  load fail, secretID:CoreBankingFundcoreSecretQa
+2022-11-01 12:01:47.794 [main] ERROR [,] org.springframework.boot.SpringApplication - Application run failed
+2022-11-18 12:05:20.712 [main] ERROR [,] c.s.f.c.shared.aws.SecretsManagerUtil - secret  load fail, secretID:CoreBankingFundcoreSecretQa
+2022-11-18 12:05:20.886 [main] ERROR [,] org.springframework.boot.SpringApplication - Application run failed
+2022-12-21 12:01:04.941 [main] ERROR [,] c.s.f.c.shared.aws.SecretsManagerUtil - secret  load fail, secretID:CoreBankingFundcoreSecretQa
+2022-12-21 12:01:05.179 [main] ERROR [,] org.springframework.boot.SpringApplication - Application run failed
+2022-12-21 12:02:29.160 [main] ERROR [,] c.s.f.c.shared.aws.SecretsManagerUtil - secret  load fail, secretID:CoreBankingFundcoreSecretQa
+2022-12-21 12:02:29.355 [main] ERROR [,] org.springframework.boot.SpringApplication - Application run failed
+2022-12-21 12:04:02.496 [main] ERROR [,] c.s.f.c.shared.aws.SecretsManagerUtil - secret  load fail, secretID:CoreBankingFundcoreSecretQa
+2022-12-21 12:04:02.852 [main] ERROR [,] org.springframework.boot.SpringApplication - Application run failed
+2022-12-26 12:01:10.344 [main] ERROR [,] c.s.f.c.shared.aws.SecretsManagerUtil - secret  load fail, secretID:CoreBankingFundcoreSecretQa
+2022-12-26 12:01:10.516 [main] ERROR [,] org.springframework.boot.SpringApplication - Application run failed
+2022-09-26 12:00:48.887 [main] ERROR [,] c.s.f.c.shared.aws.SecretsManagerUtil - secret  load fail, secretID:CoreBankingFundcoreSecretQa
+2022-09-26 12:00:49.164 [main] ERROR [,] org.springframework.boot.SpringApplication - Application run failed
+2022-10-25 12:01:34.990 [main] ERROR [,] c.s.f.c.shared.aws.SecretsManagerUtil - secret  load fail, secretID:CoreBankingFundcoreSecretQa
+2022-10-25 12:01:35.286 [main] ERROR [,] org.springframework.boot.SpringApplication - Application run failed
+2022-09-26 12:00:14.834 [main] ERROR [,] c.s.f.c.shared.aws.SecretsManagerUtil - secret  load fail, secretID:CoreBankingFundcoreSecretQa
+2022-09-26 12:00:15.041 [main] ERROR [,] org.springframework.boot.SpringApplication - Application run failed
+2022-10-25 12:03:07.941 [main] ERROR [,] c.s.f.c.shared.aws.SecretsManagerUtil - secret  load fail, secretID:CoreBankingFundcoreSecretQa
+2022-10-25 12:03:08.144 [main] ERROR [,] org.springframework.boot.SpringApplication - Application run failed
+2022-10-26 12:05:45.612 [main] ERROR [,] c.s.f.c.shared.aws.SecretsManagerUtil - secret  load fail, secretID:CoreBankingFundcoreSecretQa
+2022-10-26 12:05:45.801 [main] ERROR [,] org.springframework.boot.SpringApplication - Application run failed
+2022-10-25 12:00:59.086 [main] ERROR [,] c.s.f.c.shared.aws.SecretsManagerUtil - secret  load fail, secretID:CoreBankingFundcoreSecretQa
+2022-10-25 12:00:59.358 [main] ERROR [,] org.springframework.boot.SpringApplication - Application run failed
+2022-09-26 12:00:26.621 [main] ERROR [,] c.s.f.c.shared.aws.SecretsManagerUtil - secret  load fail, secretID:CoreBankingFundcoreSecretQa
+2022-09-26 12:00:26.839 [main] ERROR [,] org.springframework.boot.SpringApplication - Application run failed
+2022-10-26 12:00:13.903 [main] ERROR [,] c.s.f.c.shared.aws.SecretsManagerUtil - secret  load fail, secretID:CoreBankingFundcoreSecretQa
+2022-10-26 12:00:14.147 [main] ERROR [,] org.springframework.boot.SpringApplication - Application run failed

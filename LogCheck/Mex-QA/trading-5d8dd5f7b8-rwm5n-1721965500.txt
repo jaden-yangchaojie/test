@@ -1,0 +1,12 @@
+update cifA1.cc_par_common_param  set  param_value='[]'  where product_code="STC001" and param_key="mcc_black_list";
+update cifA1.cc_par_common_param  set  param_value='[]'  where product_code="STC001" and param_key="merchant_black_list";
+-- update cifA1.cc_par_common_param  set  param_value='["MXN","JPN"]'  where product_code="STC001" and param_key="ccy_white_list";
+update cifA1.cc_par_common_param  set  param_value='[]'  where product_code="STC001" and param_key="mcc_white_list";
+update cifA1.cc_par_common_param  set  param_value='["POS","ECOMMERCE","MOTO"]'  where product_code="STC001" and param_key="terminal_white_list";
+update cifA1.cc_par_common_param  set  param_value='on'  where product_code="STC001" and param_key="insSwitch";
+update cifA1.cc_par_common_param  set  param_value=1000  where product_code="STC001" and param_key="unpaid_count"; 
+update cifA1.cc_par_common_param  set  param_value=100000000  where product_code="STC001" and param_key="unpaid_amount"; 
+update cifA1.cc_par_common_param  set  param_value=0  where product_code="STC001" and param_key="overdue_count"; 
+update cifA1.cc_par_common_param  set  param_value=0  where product_code="STC001" and param_key="overdue_amount"; 
+-- update cifA1.cc_par_common_param  set  param_value=''  where product_code="STC001" and param_key="account_id_white_list";  
+-- order_status_white_list\order_type_white_list\statement_order_status_white_list\card_status_white_list 可不测

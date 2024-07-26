@@ -21,7 +21,7 @@ from requests_toolbelt import MultipartEncoder
 
 accessKey = "7CxLnIMxi4mb72oN"
 secretKey = "nGJf58NMzz1xnnb9"
-host = "http://10.82.95.229:8081"
+host = "http://k8s-metersph-metersph-a8a69a9569-2563ee3ca1fe1577.elb.us-east-1.amazonaws.com:8000"
 projectId=""
 
 def aesEncrypt(text, secretKey, iv):
