@@ -8,26 +8,29 @@
 #                     ]
 import copy
 
-PaymentOrderList = ["min_payment_vat",
-                    "min_payment_fee_replace",
-                    "min_payment_fee_late_management",
-                    "min_payment_fee_management",
+# 非DQ
+PaymentOrderList = [#分期交易
+                    "min_payment_ins_vat",
+                    "min_payment_ins_interest",
+                    "min_payment_ins_prin",
+
+                    #普通交易
                     "min_payment_vat",
+                    "min_payment_fee_replace",
+                    "min_payment_late_fee",
                     "min_payment_interest",
-                    "min_payment_ins_prin"
+
+                    "min_payment_principal"
                     ]
 
 
-
-
-
-
 # 已出账还款
-def ins_handler_had_accounting_allocation(statement_period,cur_statement_time, purchase_data_all, get_all_statement_data, amount):
+def ins_handler_had_accounting_allocation(statement_period, cur_statement_time, purchase_data_all,
+                                          get_all_statement_data, amount):
     get_cur_statment = None
-    get_pre_statment=None
-    cur_statement_period=statement_period[cur_statement_time]
-    #查找当期账期
+    get_pre_statment = None
+    cur_statement_period = statement_period[cur_statement_time]
+    # 查找当期账期
     for get_one_statement in get_all_statement_data:
         if get_one_statement.end_statemet_day == cur_statement_period.split("~")[1]:
             get_cur_statment = get_one_statement
@@ -37,15 +40,16 @@ def ins_handler_had_accounting_allocation(statement_period,cur_statement_time, p
         get_cur_statement_number = statement_period.index(cur_statement_period)
         # 第一期做为前期，其他设置前期还款分配
         get_pre_statement_period = statement_period[
-            get_cur_statement_number] if get_cur_statement_number == 0 else statement_period[get_cur_statement_number - 1]
+            get_cur_statement_number] if get_cur_statement_number == 0 else statement_period[
+            get_cur_statement_number - 1]
     for get_one_statement in get_all_statement_data:
         if get_one_statement.statement_peroid == get_pre_statement_period:
             get_pre_statment = get_one_statement
             break
-    get_pre_statment_dict= vars(get_pre_statment)
+    get_pre_statment_dict = vars(get_pre_statment)
     for get_pay_order in PaymentOrderList:
 
-        if get_pay_order == "min_payment_vat":
+        if get_pay_order == "min_payment_ins_vat":
             if amount > 0:
                 for get_purchase_data_one in purchase_data_all:
                     if amount > 0:
@@ -75,9 +79,9 @@ def ins_handler_had_accounting_allocation(statement_period,cur_statement_time, p
                                             get_one_info["repaid_vat_cal"] = get_one_info["vat_cal"]
                                         else:
                                             get_one_info["repaid_vat_cal"] = get_one_info[
-                                                                                           "repaid_vat_cal"] - amount
+                                                                                 "repaid_vat_cal"] - amount
                                     get_ins_repaid_info[get_pre_statement_period] = get_one_info
-        elif get_pay_order == "min_payment_interest":
+        elif get_pay_order == "min_payment_ins_interest":
             # get_one_statement.min_payment_all_repaid = get_one_statement.min_payment_all
             if amount > 0:
                 for get_purchase_data_one in purchase_data_all:
@@ -110,10 +114,8 @@ def ins_handler_had_accounting_allocation(statement_period,cur_statement_time, p
                                             get_one_info["repaid_interest_cal"] = get_one_info[
                                                                                       "repaid_interest_cal"] - amount
                                     get_ins_repaid_info[get_pre_statement_period] = get_one_info
-
         elif get_pay_order == "min_payment_ins_prin":
             if amount > 0:
-
                 for get_purchase_data_one in purchase_data_all:
                     if amount > 0:
                         for get_key in get_purchase_data_one.keys():
@@ -139,7 +141,8 @@ def ins_handler_had_accounting_allocation(statement_period,cur_statement_time, p
                                         continue
                                     elif amount > 0:
                                         amount_less_0 = copy.deepcopy(amount)
-                                        amount = amount - (int(get_one_info["ins_prin_cal"])-int(get_one_info["repaid_prin"]))
+                                        amount = amount - (int(get_one_info["ins_prin_cal"]) - int(
+                                            get_one_info["repaid_prin"]))
                                         if amount >= 0:
                                             get_one_info = get_ins_repaid_info[get_pre_statement_period]
                                             get_one_info["repaid_prin"] = get_one_info["ins_prin_cal"]
@@ -176,8 +179,8 @@ def ins_refund_prin(cur_statement_period, purchase_data_all, get_all_statement_d
                             if int(get_one_info["ins_prin_cal"]) == int(get_one_info["repaid_prin"]):
                                 continue
                             elif amount > 0:
-                                amount_less_0=copy.deepcopy(amount)
-                                amount = amount - (int(get_one_info["ins_prin_cal"])-int(get_one_info["repaid_prin"]))
+                                amount_less_0 = copy.deepcopy(amount)
+                                amount = amount - (int(get_one_info["ins_prin_cal"]) - int(get_one_info["repaid_prin"]))
 
                                 if amount >= 0:
                                     get_one_info = get_ins_repaid_info[get_statement_period_one]
@@ -189,7 +192,7 @@ def ins_refund_prin(cur_statement_period, purchase_data_all, get_all_statement_d
     return purchase_data_all, amount
 
 
-def handler_payment(statement_period, cur_statement_time, purchase_data_all, get_all_statement_data, amount):
+def handler_payment(statement_period, cur_statement_time, purchase_data_all, get_all_statement_data, amount_payment):
     cur_statement_period = statement_period[cur_statement_time]
 
     # 先还已出账账单，再还已经入账的未出账单（包含本金、费用），有多的钱再还未入账的分期本金。剩余的钱作为溢缴款转到存款账户
@@ -199,13 +202,22 @@ def handler_payment(statement_period, cur_statement_time, purchase_data_all, get
             get_cur_statment = get_one_statement
             break
     # 先还已出账账单
-    if amount > 0 and cur_statement_time > 0 and get_cur_statment.last_min_payment_had_payoff==False:
-        amount = amount - get_cur_statment.last_min_payment
-        if amount>0:
-            get_cur_statment.last_min_payment_had_payoff=True
-        purchase_data_all = ins_handler_had_accounting_allocation(statement_period,cur_statement_time, purchase_data_all,
+    if amount_payment > 0 and cur_statement_time > 0 and get_cur_statment.last_min_payment_had_payoff == False:
+        amount = amount_payment - get_cur_statment.last_min_payment
+
+        if amount > 0:
+            get_cur_statment.last_min_payment_had_payoff = True
+            get_cur_statment.last_min_payment=0
+        else:
+            get_cur_statment.last_min_payment_had_payoff = False
+            get_cur_statment.last_min_payment = get_cur_statment.last_min_payment-amount_payment
+
+
+        purchase_data_all = ins_handler_had_accounting_allocation(statement_period, cur_statement_time,
+                                                                  purchase_data_all,
                                                                   get_all_statement_data,
                                                                   get_cur_statment.last_min_payment)
+
     if amount > 0:
         # todo 已经入账的未出账单
         if cur_statement_time == 0:
@@ -215,7 +227,7 @@ def handler_payment(statement_period, cur_statement_time, purchase_data_all, get
             # get_cur_statment=get_all_statement_data[cur_statement_time]
 
     # 退还未入账的分期本金
-    if amount > 0:
+    if amount_payment > 0:
         if cur_statement_time == 0:
             get_cur_statment.min_payment_ins_prin = get_cur_statment.min_payment_ins_prin + amount
         for get_one_statement in get_all_statement_data:
@@ -245,12 +257,13 @@ def handler_refund(statement_period, cur_statement_time, purchase_data_all, get_
             get_cur_statment = get_one_statement
             break
     # 先还已出账账单
-    if amount > 0 and cur_statement_time > 0 and get_cur_statment.last_min_payment_had_payoff==False:
+    if amount > 0 and cur_statement_time > 0 and get_cur_statment.last_min_payment_had_payoff == False:
         amount = amount - get_cur_statment.last_min_payment
-        if amount>0:
+        if amount > 0:
             get_cur_statment.last_min_payment_had_payoff == True
         handler_accounting_amount = get_cur_statment.last_min_payment
-        purchase_data_all = ins_handler_had_accounting_allocation(statement_period,cur_statement_time, purchase_data_all,
+        purchase_data_all = ins_handler_had_accounting_allocation(statement_period, cur_statement_time,
+                                                                  purchase_data_all,
                                                                   get_all_statement_data, handler_accounting_amount)
     # 退本金
     if amount > 0:

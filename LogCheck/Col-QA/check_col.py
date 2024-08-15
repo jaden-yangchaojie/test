@@ -4,8 +4,8 @@ import subprocess
 if __name__ == '__main__':
 
     cmd = ("kubectl -n colombia get pods")
-    output, error = subprocess.run(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
-                                   universal_newlines=True)
+    result = subprocess.run(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, universal_newlines=True)
+    output, error = result.stdout, result.stderr
     for get_one in output.split("\n"):
         if get_one.count("trading-")>0 or get_one.count("statement-")>0 or get_one.count("viewx-")>0:
             try:

@@ -36,7 +36,7 @@ def init_data(get_list):
         if get_day in statement_days:
             statement_period.append(neum[ki])
             ki=ki+1
-
+    statement_period.append(neum[ki])
 
     due_days={}
     for i in statement_period:

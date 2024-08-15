@@ -2,7 +2,7 @@ import math
 
 import MexInitData
 
-mpr = {3: 0.025, 6: 0.033, 9: 0.0417, 12: 0.05}
+mpr = {3: 0.025, 6: 0.033333, 9: 0.0417, 12: 0.05}
 # mpr = {3: 0.0499, 6: 0.0541, 9: 0.0583, 12: 0.0624}
 
 def purchaseMSI(purchase_data_all, quantity, local_date_time, statement_period, cur_statement_time, amount):

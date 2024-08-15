@@ -141,12 +141,13 @@ def get_batch_ids(page_no, page_size):
                  "selectThisWeedData": false, "executeStatus": null, "selectDataRange": null, "selectAll": false,
                  "unSelectIds": [], "name": "", "combine": {},
                  "moduleIds": [
-  "0ba04d70-e3cf-433c-ab73-158b882d1ea7",
-  "4b788772-52be-46b9-aca9-a5d844063693",
-  "9657157a-b9c2-4e42-93c1-c6bfe87168b2",
-  "0290449f-e19f-4fba-8736-a0af8907a510",
-  "8b3e4332-c80c-4dbc-98d7-f299329fcea7"
-]
+
+                     # # "7f9bdee3-5406-4367-9c07-ef32d49bad3f",
+                     #  "f9e7c3f9-53aa-499e-89be-acfea4b02bee",
+                     "cc317bd6-7ea7-4b56-ab63-b39ea0323c54",
+                     "37ad91b4-cdf8-4566-ab14-fddc4d08ece6",
+                     "2f3bb128-5a62-48d7-9869-7687e08ecfa1"
+                 ]
                  }
     pp = json.dumps(post_data)
     r = s.post(url, data=pp)
@@ -157,6 +158,8 @@ def get_batch_ids(page_no, page_size):
     get_ref_id = jsonpath.jsonpath(listObject, "$..refId")
 
     return get_ref_id
+
+
 def get_test_plan_report_db_sce_failure_cases_report_ids(get_id):
     s = requests.session()
     s = request_http(s, accessKey, secretKey)
@@ -164,6 +167,7 @@ def get_test_plan_report_db_sce_failure_cases_report_ids(get_id):
     url = host + "/track/test/plan/report/db/{}".format(get_id)
 
     r = s.get(url)
+    # scenarioAllCases
     listObject = r.json().get("data").get("scenarioFailureCases")
     if len(listObject) == 0:
         print("没有搜索该报告id")
@@ -171,6 +175,23 @@ def get_test_plan_report_db_sce_failure_cases_report_ids(get_id):
     get_report_id = jsonpath.jsonpath(listObject, "$..reportId")
 
     return get_report_id
+
+
+def get_test_plan_report_running_report_test_ids(get_id):
+    s = requests.session()
+    s = request_http(s, accessKey, secretKey)
+
+    url = host + "/api/api/scenario/report/get/{}".format(get_id)
+
+    r = s.get(url)
+    # scenarioAllCases
+    content = r.json().get("data").get("content")
+    steps = json.loads(content)
+
+    get_step_all = jsonpath.jsonpath(steps, "$..totalStatus")
+    return get_step_all
+
+
 def get_test_plan_report_id_get_content(get_id):
     s = requests.session()
     s = request_http(s, accessKey, secretKey)
@@ -180,8 +201,9 @@ def get_test_plan_report_id_get_content(get_id):
     r = s.get(url)
     get_result = r.json().get("data")
 
-
     return get_result
+
+
 def test_plan_scenario_list(page_no, page_size, plan_id):
     s = requests.session()
     s = request_http(s, accessKey, secretKey)
@@ -193,6 +215,20 @@ def test_plan_scenario_list(page_no, page_size, plan_id):
     r = s.post(url, data=pp)
     listObject = r.json().get("data").get("listObject")
     return listObject
+
+
+# todo
+def set_domain():
+    s = requests.session()
+    s = request_http(s, accessKey, secretKey)
+
+    url = host + "api/automation/set-domain"
+    # post_data = {"planId": plan_id}
+    #
+    # pp = json.dumps(post_data)
+    # r = s.post(url, data=pp)
+    # listObject = r.json().get("data").get("listObject")
+    # return listObject
 
 
 def test_plan_order_update(moveId, targetId, groupId):

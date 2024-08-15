@@ -21,7 +21,7 @@ from requests_toolbelt import MultipartEncoder
 
 accessKey = "7CxLnIMxi4mb72oN"
 secretKey = "nGJf58NMzz1xnnb9"
-host = "http://10.82.95.229:8081"
+host = "http://metersphere.storicard-qa.com:8000"
 projectId=""
 
 def aesEncrypt(text, secretKey, iv):
@@ -153,6 +153,10 @@ def fibonacci(get_data, dds):
             dds.append(get_dict)
 
     elif get_data["type"] == "scenario" and get_data["enable"] == True:
+        hashTree = get_data["hashTree"]
+        for subScenario in hashTree:
+            fibonacci(subScenario, dds)
+    elif get_data["type"] == "LoopController" and get_data["enable"] == True:
         hashTree = get_data["hashTree"]
         for subScenario in hashTree:
             fibonacci(subScenario, dds)

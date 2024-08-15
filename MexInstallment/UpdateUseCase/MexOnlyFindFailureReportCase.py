@@ -18,8 +18,8 @@ def find_process(id,keyword):
 if __name__ == '__main__':
     # 输入用例id
     #要找的keyword
-    keyword="11110011000058961401"
-    get_list_id = get_batch_report_id("adb017d1-00ae-49a8-b2cb-29ccad4ccdb5")
+    keyword="UAT1698086092263"
+    get_list_id = get_batch_report_id("27fabf4a-3a1a-4fa6-9940-0d1de087b7c5")
     for get_one_id in get_list_id:
         find_process(get_one_id,keyword)
     # find_process("6cbf57db-ee2e-4965-8b71-d661d56e9932")

@@ -1,0 +1,7 @@
+
+2024-01-29 13:00:29.038 [view-query-complement-pool] ERROR [,] c.s.f.c.v.b.q.b.transaction.InstallmentTagProcess - query installment exception, req={"accountId":"11110011000059379496","entityId":"MXCC20220000","pageNo":0,"pageSize":0,"referenceIdList":["24012800002001111100004961044459"],"tenantId":"STMXFINCORE0","withRepayPlan":false}, errMsg=java.lang.InterruptedException
+节点超时
+强制中断
+
+2022-09-15 12:00:36.496 [SOFA-SEV-BOLT-BIZ-12200-6-T20] ERROR [0a527b96172232927764664227,0.1.2.1.2.1] c.s.f.c.i.b.s.impl.InstallmentParamServiceImpl - installment | param service | uRuleClient get fail. knowledgeId:601, req:{"tenantId":"STMXFINCORE0","entityId":"MXCC20220000","accountId":"11110011000059749342"}, result:{"isSuccess":false,"code":"ST012COBSFDCC985","message":"NoHttpResponseException: urule-lb:80 failed to respond"}
+2022-09-15 12:00:36.496 [SOFA-SEV-BOLT-BIZ-12200-6-T20] ERROR [0a527b96172232927764664227,0.1.2.1.2.1] c.s.f.c.i.b.service.node.impl.AbstractProcessNode - installment | ParamQuery node fail! msg:error.invoke.rule.engine

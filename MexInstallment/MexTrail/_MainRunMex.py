@@ -10,6 +10,6 @@ def handler_process(id):
 
 if __name__ == '__main__':
     #输入用例id
-    handler_process("102316")
+    handler_process("bd1f3a6b-4547-4fa6-9121-aa8438af5724")
 
 

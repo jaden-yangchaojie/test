@@ -23,7 +23,7 @@ def only_find(get_data, dds):
     if get_data["type"] == "HTTPSamplerProxy" and get_data["enable"] == True:
         get_path = get_data["path"]
 
-        if str(get_path).count("credit/transactions"):
+        if str(get_path).count("dq"):
             # get_list = get_data["body"]["kvs"]
             # if get_list[0]["value"]'' :
             #
