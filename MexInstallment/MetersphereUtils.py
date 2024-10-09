@@ -130,7 +130,7 @@ def request_http(s, accessKey, secretKey):
     return s
 
 
-def get_batch_ids(page_no, page_size):
+def get_batch_ids(page_no, page_size,module_ids_list):
     s = requests.session()
     s = request_http(s, accessKey, secretKey)
 
@@ -140,14 +140,7 @@ def get_batch_ids(page_no, page_size):
                  "projectId": "11406dc7-8340-401f-813f-3511a97d3fbb",
                  "selectThisWeedData": false, "executeStatus": null, "selectDataRange": null, "selectAll": false,
                  "unSelectIds": [], "name": "", "combine": {},
-                 "moduleIds": [
-
-                     # # "7f9bdee3-5406-4367-9c07-ef32d49bad3f",
-                     #  "f9e7c3f9-53aa-499e-89be-acfea4b02bee",
-                     "cc317bd6-7ea7-4b56-ab63-b39ea0323c54",
-                     "37ad91b4-cdf8-4566-ab14-fddc4d08ece6",
-                     "2f3bb128-5a62-48d7-9869-7687e08ecfa1"
-                 ]
+                 "moduleIds":module_ids_list
                  }
     pp = json.dumps(post_data)
     r = s.post(url, data=pp)
@@ -176,7 +169,38 @@ def get_test_plan_report_db_sce_failure_cases_report_ids(get_id):
 
     return get_report_id
 
+def get_test_plan_report_db_sce_failure_cases_report_ids2(get_id):
+    s = requests.session()
+    s = request_http(s, accessKey, secretKey)
 
+    url = host + "/track/test/plan/report/db/{}".format(get_id)
+
+    r = s.get(url)
+    # scenarioAllCases
+    listObject = r.json().get("data").get("scenarioFailureCases")
+    if len(listObject) == 0:
+        print("没有搜索该报告id")
+        sys.exit()
+
+    return listObject
+def get_test_plan_report_db_sce_failure_cases_and_unrun_cases_report_ids3(get_id):
+    s = requests.session()
+    s = request_http(s, accessKey, secretKey)
+
+    url = host + "/track/test/plan/report/db/{}".format(get_id)
+
+    r = s.get(url)
+    get_data=r.json().get("data")
+    # scenarioAllCases
+    listObject = get_data.get("scenarioFailureCases")
+    listObject2 = get_data.get('unExecuteScenarios')
+    for get_one in listObject2:
+        listObject.append(get_one)
+    if len(listObject) == 0:
+        print("没有搜索该报告id")
+        sys.exit()
+
+    return listObject
 def get_test_plan_report_running_report_test_ids(get_id):
     s = requests.session()
     s = request_http(s, accessKey, secretKey)
@@ -190,8 +214,31 @@ def get_test_plan_report_running_report_test_ids(get_id):
 
     get_step_all = jsonpath.jsonpath(steps, "$..totalStatus")
     return get_step_all
+def rerun_report_single_plan_test(all_report_id,id,sub_report_id,user_id):
+    s = requests.session()
+    s = request_http(s, accessKey, secretKey)
 
+    url = host + "/track/test/plan/rerun"
+    post_data ={"type": "TEST_PLAN", "reportId": all_report_id, "scenarios": [
+        {"id": id, "reportId": sub_report_id,
+         "userId": user_id}], "cases": [], "performanceCases": []}
+    print(post_data)
+    pp = json.dumps(post_data)
+    r = s.post(url, data=pp)
 
+    return r.json()
+
+def rerun_report_mul_plan_test(all_report_id,scenarios_list):
+    s = requests.session()
+    s = request_http(s, accessKey, secretKey)
+
+    url = host + "/track/test/plan/rerun"
+    post_data ={"type": "TEST_PLAN", "reportId": all_report_id, "scenarios": scenarios_list, "cases": [], "performanceCases": []}
+    print(post_data)
+    pp = json.dumps(post_data)
+    r = s.post(url, data=pp)
+
+    return r.json()
 def get_test_plan_report_id_get_content(get_id):
     s = requests.session()
     s = request_http(s, accessKey, secretKey)

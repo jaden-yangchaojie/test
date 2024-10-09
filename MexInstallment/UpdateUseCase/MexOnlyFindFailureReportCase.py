@@ -1,7 +1,4 @@
-import json
-
-from ColInstallment import ColScenarioHandler
-from MexInstallment import MetersphereUtils
+from MexInstallment.MexTrail.MexInstallment import MetersphereUtils
 #批量修改任务id和其他参数用例
 
 def get_batch_report_id(get_id):

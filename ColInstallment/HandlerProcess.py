@@ -13,10 +13,10 @@ import CurrentStatement
 import PaymentAllocation
 
 dds = []
-gov_rate_config = {"2022-09": 0.317, "2022-10": 0.337, "2022-11": 0.317, "2022-12": 0.317, "2023-01": 0.337,
-                   "2023-02": 0.317}
-purchase_config = {"2022-09": 0.348, "2022-10": 0.348, "2022-11": 0.348, "2022-12": 0.348, "2023-01": 0.348,
-                   "2023-02": 0.348}
+gov_rate_config = {"2022-09": 0.317, "2022-10": 0.337, "2022-11": 0.317, "2022-12": 0.337, "2023-01": 0.317,
+                   "2023-02": 0.337}
+purchase_config = {"2022-09": 0.317, "2022-10": 0.337, "2022-11": 0.317, "2022-12": 0.337, "2023-01": 0.317,
+                   "2023-02": 0.337}
 
 
 def cal_interest(cur_statement_time, purchase_data_all, statement_period, interest_time_line, get_more_day_cal_interest,

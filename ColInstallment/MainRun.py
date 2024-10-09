@@ -10,6 +10,6 @@ def handler_process(id):
 
 if __name__ == '__main__':
     #输入用例id,必须是哥伦比亚相关
-    handler_process("101437")
+    handler_process("fa981a71-eeb9-40d7-b67a-e4fcb5f886a4")
     # handler_process("100651")
 

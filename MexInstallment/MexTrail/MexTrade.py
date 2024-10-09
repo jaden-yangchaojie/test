@@ -44,7 +44,7 @@ def purchaseMSI(purchase_data_all, quantity, local_date_time, statement_period, 
                                                       "vat_cal": 0.0,
                                                       "ins_prin_cal": get_avg_ins_prin,
                                                       "repaid_interest_cal": 0.00,
-                                                      "repaid_val": 0.00,
+                                                      "repaid_vat_cal": 0.00,
                                                       "repaid_prin": 0,
                                                       "ins_peroid": (i + 1)}}
                 set_purchase_data_one_dict.update(set_ins_prin)

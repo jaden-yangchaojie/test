@@ -218,13 +218,13 @@ def handler_payment(statement_period, cur_statement_time, purchase_data_all, get
                                                                   get_all_statement_data,
                                                                   get_cur_statment.last_min_payment)
 
-    if amount > 0:
-        # todo 已经入账的未出账单
-        if cur_statement_time == 0:
-            print()
-        elif cur_statement_time > 0:
-            print()
-            # get_cur_statment=get_all_statement_data[cur_statement_time]
+        if amount > 0:
+            # todo 已经入账的未出账单
+            if cur_statement_time == 0:
+                print()
+            elif cur_statement_time > 0:
+                print()
+                # get_cur_statment=get_all_statement_data[cur_statement_time]
 
     # 退还未入账的分期本金
     if amount_payment > 0:

@@ -151,7 +151,7 @@ def cal_interest_and_vat(get_cur_statement_one, cur_statement_time):
 
 
 # todo
-def cal_minpayment_result(get_cur_statement_one):
+def cal_minpayment_result_old(get_cur_statement_one):
     ins_vat = get_cur_statement_one.min_payment_ins_vat
     ins_interest = get_cur_statement_one.min_payment_ins_interest
     ins_principal = get_cur_statement_one.min_payment_ins_prin
@@ -185,6 +185,51 @@ def cal_minpayment_result(get_cur_statement_one):
         return max(c1, c2, c3)
     # ,其他逻辑没写 todo
 
+def cal_minpayment_result(get_cur_statement_one):
+    ins_vat = get_cur_statement_one.min_payment_ins_vat
+    ins_interest = get_cur_statement_one.min_payment_ins_interest
+    ins_principal = get_cur_statement_one.min_payment_ins_prin
+    #修改点
+    ins_all = ins_vat + ins_interest
+    end_stmt_posted_bal = get_cur_statement_one.end_stmt_posted_bal
+    vat = get_cur_statement_one.min_payment_vat
+    interest = get_cur_statement_one.min_payment_interest
+    fee = get_cur_statement_one.min_payment_fee_replace + get_cur_statement_one.min_payment_late_fee
+    credit_limit_amt = float(get_cur_statement_one.credit_line)
+    if end_stmt_posted_bal<=0:
+        return 0
+    c1 = 0
+    c2 = 0
+    c3 = 0
+    c4=end_stmt_posted_bal
+    c5=10000
+    if get_cur_statement_one.dq_is == False:
+        c1 = (end_stmt_posted_bal - ins_all - vat - interest) * 1.5 / 100 + ins_all + vat + interest
+        c2 = credit_limit_amt * 1.25 / 100
+        c3 = (end_stmt_posted_bal - ins_all - interest - vat - fee) * 1.6 / 100 + interest + vat + fee + ins_all
+    else:
+        unpaid_min_pmt_bal = get_cur_statement_one.last_min_payment
+        c1 = (
+                     end_stmt_posted_bal - ins_all - interest - vat - unpaid_min_pmt_bal) * 1.5 / 100 + interest + vat + unpaid_min_pmt_bal + ins_all
+        c2 = credit_limit_amt * 1.25 / 100 + unpaid_min_pmt_bal
+        c3 = (
+                     end_stmt_posted_bal - ins_all - interest - vat - fee - unpaid_min_pmt_bal) * 1.6 / 100 + interest + vat + fee + unpaid_min_pmt_bal + ins_all
+    if end_stmt_posted_bal<=0:
+        return 0
+    elif end_stmt_posted_bal<=10000:
+        return end_stmt_posted_bal
+    elif c2>end_stmt_posted_bal:
+       tmp= max(c1,c3)
+       if tmp<10000:
+           return  10000
+       else:
+           return tmp
+    else:
+        tmp = max(c1,c2,c3)
+        if tmp < 10000:
+            return 10000
+        else:
+            return tmp
 
 def handler(get_list, get_init_data):
     purchase_data_all = []
@@ -315,13 +360,10 @@ def handler(get_list, get_init_data):
                     get_info = json.loads(get_list[k]["body"]["raw"])
                     local_date_time = get_info["transaction"]["local_date_time"]
                     amount = float(get_info["amount"]["local"]["total"]) * 100
-
+                    get_cur_statement_one.end_stmt_posted_bal = get_cur_statement_one.end_stmt_posted_bal - amount
                     purchase_data_all = MexTrade.purchaseTradeIns(purchase_data_all, quantity, local_date_time,
                                                                   statement_period,
                                                                   cur_statement_time, amount)
-                    # adb_record
-                    # get_time_day = str(get_time_line[get_cur_time_point - 1]).split(" ")[0]
-                    # get_cur_statement_one.adb_record.append({get_time_day: amount})
                     break
 
         elif get_one["path"] == "/transactions/authorizations":
@@ -343,6 +385,10 @@ def handler(get_list, get_init_data):
                         purchase_data_all = MexTrade.purchaseMSI(purchase_data_all, quantity, local_date_time,
                                                                  statement_period,
                                                                  cur_statement_time, amount)
+                else:
+                    amount = float(get_raw["amount"]["local"]["total"]) * 100
+                    avilibale_credit_line = avilibale_credit_line - amount
+                    get_cur_statement_one.end_stmt_posted_bal=get_cur_statement_one.end_stmt_posted_bal+amount
 
             if get_raw["transaction"]["type"] == "PAYMENT":
                 amount = float(get_raw["amount"]["local"]["total"]) * 100
@@ -398,7 +444,7 @@ def handler(get_list, get_init_data):
                 get_cur_statement_one.last_min_payment if get_cur_statement_one.last_min_payment_had_payoff == False else 0
             )
 
-            get_cur_statement_one.min_payment_all = cal_minpayment_result(get_cur_statement_one)
+            get_cur_statement_one.min_payment_all = cal_minpayment_result(get_cur_statement_one,)
             print(vars(get_cur_statement_one))
 
             last_min_payment = get_cur_statement_one.last_min_payment

@@ -1,0 +1,293 @@
+{
+    "data": {
+        "adbCalculationList": [
+            {
+                "date": "20220927",
+                "cycleDay": 1,
+                "endBalance": "1306.24",
+                "initialBalance": "2298.74",
+                "purchaseOrFee": "0.00",
+                "payment": "-992.50"
+            },
+            {
+                "date": "20220928",
+                "cycleDay": 2,
+                "endBalance": "1306.24",
+                "initialBalance": "1306.24",
+                "purchaseOrFee": "0.00",
+                "payment": "0.00"
+            },
+            {
+                "date": "20220929",
+                "cycleDay": 3,
+                "endBalance": "1306.24",
+                "initialBalance": "1306.24",
+                "purchaseOrFee": "0.00",
+                "payment": "0.00"
+            },
+            {
+                "date": "20220930",
+                "cycleDay": 4,
+                "endBalance": "1306.24",
+                "initialBalance": "1306.24",
+                "purchaseOrFee": "0.00",
+                "payment": "0.00"
+            },
+            {
+                "date": "20221001",
+                "cycleDay": 5,
+                "endBalance": "1306.24",
+                "initialBalance": "1306.24",
+                "purchaseOrFee": "0.00",
+                "payment": "0.00"
+            },
+            {
+                "date": "20221002",
+                "cycleDay": 6,
+                "endBalance": "1306.24",
+                "initialBalance": "1306.24",
+                "purchaseOrFee": "0.00",
+                "payment": "0.00"
+            },
+            {
+                "date": "20221003",
+                "cycleDay": 7,
+                "endBalance": "1306.24",
+                "initialBalance": "1306.24",
+                "purchaseOrFee": "0.00",
+                "payment": "0.00"
+            },
+            {
+                "date": "20221004",
+                "cycleDay": 8,
+                "endBalance": "1306.24",
+                "initialBalance": "1306.24",
+                "purchaseOrFee": "0.00",
+                "payment": "0.00"
+            },
+            {
+                "date": "20221005",
+                "cycleDay": 9,
+                "endBalance": "1306.24",
+                "initialBalance": "1306.24",
+                "purchaseOrFee": "0.00",
+                "payment": "0.00"
+            },
+            {
+                "date": "20221006",
+                "cycleDay": 10,
+                "endBalance": "1306.24",
+                "initialBalance": "1306.24",
+                "purchaseOrFee": "0.00",
+                "payment": "0.00"
+            },
+            {
+                "date": "20221007",
+                "cycleDay": 11,
+                "endBalance": "1306.24",
+                "initialBalance": "1306.24",
+                "purchaseOrFee": "0.00",
+                "payment": "0.00"
+            },
+            {
+                "date": "20221008",
+                "cycleDay": 12,
+                "endBalance": "1306.24",
+                "initialBalance": "1306.24",
+                "purchaseOrFee": "0.00",
+                "payment": "0.00"
+            },
+            {
+                "date": "20221009",
+                "cycleDay": 13,
+                "endBalance": "1306.24",
+                "initialBalance": "1306.24",
+                "purchaseOrFee": "0.00",
+                "payment": "0.00"
+            },
+            {
+                "date": "20221010",
+                "cycleDay": 14,
+                "endBalance": "1306.24",
+                "initialBalance": "1306.24",
+                "purchaseOrFee": "0.00",
+                "payment": "0.00"
+            },
+            {
+                "date": "20221011",
+                "cycleDay": 15,
+                "endBalance": "1306.24",
+                "initialBalance": "1306.24",
+                "purchaseOrFee": "0.00",
+                "payment": "0.00"
+            },
+            {
+                "date": "20221012",
+                "cycleDay": 16,
+                "endBalance": "1306.24",
+                "initialBalance": "1306.24",
+                "purchaseOrFee": "0.00",
+                "payment": "0.00"
+            },
+            {
+                "date": "20221013",
+                "cycleDay": 17,
+                "endBalance": "1306.24",
+                "initialBalance": "1306.24",
+                "purchaseOrFee": "0.00",
+                "payment": "0.00"
+            },
+            {
+                "date": "20221014",
+                "cycleDay": 18,
+                "endBalance": "1306.24",
+                "initialBalance": "1306.24",
+                "purchaseOrFee": "0.00",
+                "payment": "0.00"
+            },
+            {
+                "date": "20221015",
+                "cycleDay": 19,
+                "endBalance": "1306.24",
+                "initialBalance": "1306.24",
+                "purchaseOrFee": "0.00",
+                "payment": "0.00"
+            },
+            {
+                "date": "20221016",
+                "cycleDay": 20,
+                "endBalance": "1306.24",
+                "initialBalance": "1306.24",
+                "purchaseOrFee": "0.00",
+                "payment": "0.00"
+            },
+            {
+                "date": "20221017",
+                "cycleDay": 21,
+                "endBalance": "1306.24",
+                "initialBalance": "1306.24",
+                "purchaseOrFee": "0.00",
+                "payment": "0.00"
+            },
+            {
+                "date": "20221018",
+                "cycleDay": 22,
+                "endBalance": "1306.24",
+                "initialBalance": "1306.24",
+                "purchaseOrFee": "0.00",
+                "payment": "0.00"
+            },
+            {
+                "date": "20221019",
+                "cycleDay": 23,
+                "endBalance": "1306.24",
+                "initialBalance": "1306.24",
+                "purchaseOrFee": "0.00",
+                "payment": "0.00"
+            },
+            {
+                "date": "20221020",
+                "cycleDay": 24,
+                "endBalance": "1306.24",
+                "initialBalance": "1306.24",
+                "purchaseOrFee": "0.00",
+                "payment": "0.00"
+            },
+            {
+                "date": "20221021",
+                "cycleDay": 25,
+                "endBalance": "1306.24",
+                "initialBalance": "1306.24",
+                "purchaseOrFee": "0.00",
+                "payment": "0.00"
+            },
+            {
+                "date": "20221022",
+                "cycleDay": 26,
+                "endBalance": "1306.24",
+                "initialBalance": "1306.24",
+                "purchaseOrFee": "0.00",
+                "payment": "0.00"
+            },
+            {
+                "date": "20221023",
+                "cycleDay": 27,
+                "endBalance": "1306.24",
+                "initialBalance": "1306.24",
+                "purchaseOrFee": "0.00",
+                "payment": "0.00"
+            },
+            {
+                "date": "20221024",
+                "cycleDay": 28,
+                "endBalance": "1306.24",
+                "initialBalance": "1306.24",
+                "purchaseOrFee": "0.00",
+                "payment": "0.00"
+            },
+            {
+                "date": "20221025",
+                "cycleDay": 29,
+                "endBalance": "1306.24",
+                "initialBalance": "1306.24",
+                "purchaseOrFee": "0.00",
+                "payment": "0.00"
+            },
+            {
+                "date": "20221026",
+                "cycleDay": 30,
+                "endBalance": "1357.03",
+                "initialBalance": "1306.24",
+                "purchaseOrFee": "300.79",
+                "payment": "-250.00"
+            }
+        ],
+        "interestCalculation": {
+            "apr": "0.899000",
+            "inflationNonTax": "0.005108",
+            "realInterestRate": "0.069809",
+            "startUdi": "7.521027000",
+            "startUdiDate": "20220926",
+            "endDate": "20221026",
+            "daysInterval": 30,
+            "endUdi": "7.559441000",
+            "realInterest": "91.31",
+            "inflation": "0.005108",
+            "monthlyInterestRate": "0.074917",
+            "realMonthlyRate": "0.069809",
+            "endBalance": "1357.03",
+            "endUdiDate": "20221026",
+            "creditLimit": "100000.00",
+            "dailyInterest": "3.04",
+            "interestNotTax": "6.68",
+            "factor": "1.005108",
+            "totalInterest": "97.99",
+            "adb": "1307.93",
+            "startDate": "20220927"
+        },
+        "paymentCalculationList": [],
+        "minPayment": {
+            "accountDQ": "NON-DQ",
+            "fee": "35.00",
+            "unpaidMinPayment": "0.00",
+            "vat": "20.21",
+            "rule": "{\"currentRule\":[\"Min_pmt_s1 = (end_stmt_posted_bal - ins_vat - ins_interest - interest - VAT) * 1.5% + interest + VAT + ins_vat + ins_interest\",\"Min_pmt_s2 = credit_limit_amt * 1.25%\",\"Min_pmt_s3 = (end_stmt_posted_bal - ins_vat - ins_interest - interest - VAT - fee) * 1.6% + interest + VAT + fee + ins_vat + ins_interest\"],\"NonDQRule\":[\"Min_pmt_s1 = (end_stmt_posted_bal - ins_vat - ins_interest - interest - VAT) * 1.5% + interest + VAT + ins_vat + ins_interest\",\"Min_pmt_s2 = credit_limit_amt * 1.25%\",\"Min_pmt_s3 = (end_stmt_posted_bal - ins_vat - ins_interest - interest - VAT - fee) * 1.6% + interest + VAT + fee + ins_vat + ins_interest\"],\"finalRule\":\"Min_pmt_s2 = credit_limit_amt * 1.25%\",\"DQRule\":[\"Min_pmt_s1 = (end_stmt_posted_bal - ins_vat - ins_interest - interest - VAT - unpaid_min_pmt_bal) * 1.5% + interest + VAT + unpaid_min_pmt_bal + ins_vat + ins_interest\",\"Min_pmt_s2 = credit_limit_amt * 1.25% + unpaid_min_pmt_bal\",\"Min_pmt_s3 = (end_stmt_posted_bal - ins_vat - ins_interest - interest - VAT - fee - unpaid_min_pmt_bal)* 1.6% + interest + VAT + fee + unpaid_min_pmt_bal + ins_vat + ins_interest\"]}",
+            "endStatementBalance": "1515.29",
+            "insInterest": "5.06",
+            "insVat": "0.81",
+            "insPrincipal": "299.98",
+            "principal": "1362.09",
+            "calculateResultOne": "144.94",
+            "interest": "97.99",
+            "creditLimit": "100000.00",
+            "calculateResultThree": "180.77",
+            "minPaymentThreshold": "100",
+            "calculateResult": "1250.00",
+            "calculateResultTwo": "1250.00"
+        }
+    },
+    "message": "",
+    "status": "Success",
+    "statusCode": "00000",
+    "timestamp": "2024-09-05T00:23:00.910-06:00"
+}

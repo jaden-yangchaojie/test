@@ -124,7 +124,7 @@ def update_scenario_detail(post_data):
     url = host + "/api/api/automation/update"
 
     json_data=json.dumps(post_data,ensure_ascii=False)
-    print(json_data)
+    # print(json_data)
     s=requests.session()
     m = MultipartEncoder(fields={"request":('blob',json_data,'application/json'),"filename":"blob"}, boundary=boundary)
     header = {'Content-Type': m.content_type,'accessKey': accessKey,

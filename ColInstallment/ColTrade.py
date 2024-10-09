@@ -55,7 +55,7 @@ def purchase(purchase_data_all,quantity,local_date_time,statement_period,cur_sta
 
         set_purchase_data_one = {
             "purchase_" + str(quantity) + "_" + str(local_date_time): set_purchase_data_one_dict,
-            "quantity": quantity, "prin_amount": amount, "p_rate": 0.348 if quantity > 1 else 0}
+            "quantity": quantity, "prin_amount": amount, "p_rate": 0.317 if quantity > 1 else 0}
     print(set_purchase_data_one)
     purchase_data_all.append(set_purchase_data_one)
     return purchase_data_all

@@ -1,7 +1,8 @@
 import json
 
-from ColInstallment import ColScenarioHandler
 from MexInstallment import MetersphereUtils
+
+
 #批量修改任务id和其他参数用例
 
 def get_batch_id():
@@ -23,7 +24,7 @@ def only_find(get_data, dds):
     if get_data["type"] == "HTTPSamplerProxy" and get_data["enable"] == True:
         get_path = get_data["path"]
 
-        if str(get_path).count("dq"):
+        if str(get_path).count("/backoffice/dfl/credit/statement/create"):
             # get_list = get_data["body"]["kvs"]
             # if get_list[0]["value"]'' :
             #
