@@ -4,7 +4,7 @@ import sys
 import time
 import subprocess
 # 执行一个Linux命令,如果出现returned non-zero exit status 1，是没有捞取到数据
-view_filter_word=["the auth info of transaction not found","The number of mq delivery times is"]
+view_filter_word=["the auth info of transaction not found","The number of mq delivery times is","transaction already posted"]
 trading_filter_word=["error.charge.interest.auth",
              "Transaction rolled back because it has been marked as rollback-only",
                   "installment | refundAllocation fail."  #合理的用户级锁
@@ -13,7 +13,9 @@ trading_filter_word=["error.charge.interest.auth",
 statement_filter_word=["total.payment.amount.calc.error.",
                        "Transaction rolled back because it has been marked as rollback-only.",
                        "error.payment.statement.",
-                       "error.statement.payment."]
+                       "error.charge.interest.",
+                       "error.statement.payment.","latest statement payment amount cover min payment amount"
+    ,"error.payAmount.more.than.unpaidAmount.","error.statement.cycle.blocked."]
 if __name__ == '__main__':
     get_path=os.getcwd()
     print(get_path)

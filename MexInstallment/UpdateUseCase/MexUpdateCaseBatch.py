@@ -7,9 +7,7 @@ from ColInstallment import ColScenarioHandler
 
 def get_batch_id():
     get_batch_ids = MetersphereUtils.get_batch_ids(1, 50,[
-  "51b3b82f-2dd2-4ed3-9f90-1eb7e975c0cd",
-  "54dc2e01-234c-4456-a9b5-68dba146593f",
-  "e9d7c1b2-0c83-4a09-b78e-17c81bc79e0e"
+  "e00c1576-be16-4eb5-b8e1-3785d330ec76"
 ])
     return get_batch_ids
 
@@ -33,8 +31,14 @@ def fibonacci_handler(result):
     for  i,get_data in enumerate(hashTree):
         if get_data["type"] == "scenario"  and get_data["enable"] == True:
             # if get_data['num']==100452 or get_data['num']==102260 or get_data['num']==100206:
-            if get_data['num'] ==12307:
-                 result["hashTree"][i]['referenced']="REF"
+            if str(get_data['name']).count('出账')>0 and get_data['num']==100562 :
+                # result["hashTree"][i]['hashTree']="REF"
+                tmp_chuzhang_hashtree=result["hashTree"][i]['hashTree']
+                str_tmp_chuzhang_hashtree=str(tmp_chuzhang_hashtree)
+                str_update=str_tmp_chuzhang_hashtree.replace("MXN","COP")
+                tmp_update_hashtree=eval(str_update)
+                result["hashTree"][i]['hashTree']=tmp_update_hashtree
+
 
 
 def handler_process(id):

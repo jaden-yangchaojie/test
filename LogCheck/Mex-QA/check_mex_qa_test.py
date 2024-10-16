@@ -3,8 +3,9 @@ import subprocess
 # 执行一个Linux命令,如果出现returned non-zero exit status 1，是没有捞取到数据
 base_found='grep -C5 "Excep" logs/run/common-error.log '
 include_found='|grep "2022"'
-unclude_found='|grep -v "charge.interst"|grep -v "sofa.rpc.core.exception"|grep -v "Ignore task process"|grep -v "MXDC20220000"|grep -v "urule-lb"'
-total_found=base_found+include_found+unclude_found
+# unclude_found='|grep -v "charge.interst"|grep -v "sofa.rpc.core.exception"|grep -v "Ignore task process"|grep -v "MXDC20220000"|grep -v "urule-lb"'
+# total_found=base_found+include_found+unclude_found
+total_found=base_found+include_found
 if __name__ == '__main__':
     cmd = ("kubectl -n qa-test get pods")
     result= subprocess.run(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, universal_newlines=True)

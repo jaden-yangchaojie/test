@@ -227,6 +227,14 @@ def rerun_report_single_plan_test(all_report_id,id,sub_report_id,user_id):
     r = s.post(url, data=pp)
 
     return r.json()
+def stop_report_single_plan_test(all_report_id):
+    s = requests.session()
+    s = request_http(s, accessKey, secretKey)
+
+    url = host + "/api/api/automation/stop/{}".format(all_report_id)
+
+    r = s.get(url)
+    return r.json()
 
 def rerun_report_mul_plan_test(all_report_id,scenarios_list):
     s = requests.session()
