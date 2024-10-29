@@ -1,6 +1,8 @@
 import json
 
-from MexInstallment.MexTrail.MexInstallment import MetersphereUtils
+import MetersphereUtils
+
+
 #批量修改任务id和其他参数用例
 
 def get_batch_id():
@@ -10,7 +12,7 @@ def get_batch_id():
 isTrue= False
 def find_process(id):
     scenario_id = MetersphereUtils.get_scenario_detail_id_by_search_id(id) if id.isdigit() else id
-    data = MetersphereUtils.get_scenario_detail_all_info(scenario_id)
+    data = MetersphereUtils.get_scenario_single_detail_all_info(scenario_id)
     get_sce_data = data.get("data").get("scenarioDefinition")
     result = json.loads(get_sce_data)
 
