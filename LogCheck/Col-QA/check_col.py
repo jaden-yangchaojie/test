@@ -11,7 +11,10 @@ if __name__ == '__main__':
             try:
                 get_one = get_one.split(" ")[0]
                 print(get_one)
-                get_gramm=str.format('kubectl -n colombia exec -it {} grep "Excep" logs/run/common-error.log|grep 2022',get_one)
+                # get_gramm=str.format('kubectl -n colombia exec -it {} grep "Excep" logs/run/common-error.log|grep 2022',get_one)
+                get_gramm = str.format(
+                    'kubectl -n colombia exec -it {} grep "2022-" logs/run/common-error.log', get_one)
+
                 print (get_gramm)
                 get_info=subprocess.check_output( get_gramm,shell=True)
                 with open(get_one+str(int(time.time()))+'.txt', 'w') as file:

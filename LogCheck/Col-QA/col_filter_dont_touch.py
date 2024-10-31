@@ -8,12 +8,17 @@ view_filter_word=["the auth info of transaction not found","The number of mq del
 trading_filter_word=["error.charge.interest.auth",
              "Transaction rolled back because it has been marked as rollback-only",
                   "installment | refundAllocation fail."  #合理的用户级锁
-                     ,"min.paid.statements.can.not.be.empty.after.ignore.non.dq.statement"
+                     ,"min.paid.statements.can.not.be.empty.after.ignore.non.dq.statement",
+                     "Installment task processing occurs business error","Ignore task process",
+                     "CertPathValidatorException"
+                     ,"Installment task processing occurs system error."
+                     ,"Application run failed","err.interest.check"
                      ]
 statement_filter_word=["total.payment.amount.calc.error.",
                        "Transaction rolled back because it has been marked as rollback-only.",
                        "error.payment.statement.",
-                       "error.statement.payment."]
+                       "error.statement.payment.","DAY_CUT_SCHEDULE",".aws.", "CertPathValidatorException",
+                       "Application run failed","auth.transaction.not.exist."]
 if __name__ == '__main__':
     get_path=os.getcwd()
     print(get_path)

@@ -1,0 +1,7 @@
+2022-11-06 00:11:34.113 [main] ERROR [,] c.s.f.c.shared.aws.SecretsManagerUtil - secret  load fail, secretID:col-CoreBankingFundcoreSecretQa
+2022-11-06 00:11:34.392 [main] ERROR [,] org.springframework.boot.SpringApplication - Application run failed
+2022-11-24 00:21:17.223 [main] ERROR [,] c.s.f.c.shared.aws.SecretsManagerUtil - secret  load fail, secretID:col-CoreBankingFundcoreSecretQa
+2022-11-24 00:21:17.501 [main] ERROR [,] org.springframework.boot.SpringApplication - Application run failed
+2022-11-25 12:01:51.638 [main] ERROR [,] c.s.f.c.shared.aws.SecretsManagerUtil - secret  load fail, secretID:col-CoreBankingFundcoreSecretQa
+2022-11-25 12:01:51.961 [main] ERROR [,] org.springframework.boot.SpringApplication - Application run failed
+2022-10-25 12:00:21.355 [SOFA-SEV-BOLT-BIZ-12200-8-T17] ERROR [0a5278d8172982236021967811,0.1.2.1] c.s.f.c.shared.aspect.ExceptionHandler - clazzName:BillingStatementFacadeImpl, methodName:createTaskForStatement, args:[{"tenantId":"STCOFINCORE0","entityId":"COCC20230000"}], exception:

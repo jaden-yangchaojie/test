@@ -78,7 +78,7 @@ def update(get_post_data):
     return req
 
 
-def get_scenario_detail_all_info(scenario_id):
+def get_scenario_single_detail_all_info(scenario_id):
     s = requests.session()
     s = request_http(s, accessKey, secretKey)
     url = host + "/api/api/automation/scenario-details/{}".format(scenario_id)
@@ -118,7 +118,24 @@ def get_scenario_detail_id_by_search_id(id):
     scenario_id = listObject[0]["id"]
     return scenario_id
 
-
+def get_scenario_detail_id_by_search_id2(id):
+    s = requests.session()
+    s = request_http(s, accessKey, secretKey)
+    url = host + "/api/api/automation/list/1/10"
+    post_data = {"filters": {"status": ["Prepare", "Underway", "Completed"]},
+                 "orders": [{"name": "name", "type": "asc"}], "moduleIds": [],
+                 "projectId": "11406dc7-8340-401f-813f-3511a97d3fbb",
+                 "selectThisWeedData": false, "executeStatus": null, "selectDataRange": null, "selectAll": false,
+                 "unSelectIds": [], "name": "", "combine": {"id": {"operator": "like", "value": str(id)}}
+                 }
+    pp = json.dumps(post_data)
+    r = s.post(url, data=pp)
+    listObject = r.json().get("data").get("listObject")
+    if len(listObject) == 0:
+        print("没有搜索该用例id")
+        sys.exit()
+    scenario_id = listObject[0]["id"]
+    return scenario_id
 def request_http(s, accessKey, secretKey):
     timeStamp = int(round(time.time() * 1000))
     combox_key = accessKey + '|' + str(uuid.uuid4()) + '|' + str(timeStamp)
@@ -129,7 +146,16 @@ def request_http(s, accessKey, secretKey):
     s.headers.update(header)
     return s
 
+def get_project_env(project_id="11406dc7-8340-401f-813f-3511a97d3fbb"):
+    s = requests.session()
+    s = request_http(s, accessKey, secretKey)
 
+    url = host + "/api/environment/project-env"
+    post_data = [project_id]
+    pp = json.dumps(post_data)
+    r = s.post(url, data=pp)
+    listObject = r.json().get("data")
+    return listObject
 def get_batch_ids(page_no, page_size,module_ids_list):
     s = requests.session()
     s = request_http(s, accessKey, secretKey)
@@ -297,7 +323,16 @@ def test_plan_order_update(moveId, targetId, groupId):
 
     return r.json()
 
+def operating_log_get_source(sourceId="54eb3c5d-dd11-4342-bc20-e2af5cd9a3a6"):
+    s = requests.session()
+    s = request_http(s, accessKey, secretKey)
 
+    url = host + "/api/operating/log/get/source/1/10"
+    post_data = {"sourceId":sourceId,"modules":["接口自动化","Api automation","接口自動化","API_AUTOMATION"]}
+    pp = json.dumps(post_data)
+    r = s.post(url, data=pp)
+
+    return r.json()
 if __name__ == '__main__':
     get_list = test_plan_scenario_list(1, 20, "160575b1-1439-4e84-80fa-5c0751b42170")
     print(get_list)

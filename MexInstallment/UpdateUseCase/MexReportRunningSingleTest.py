@@ -13,7 +13,7 @@ if __name__ == '__main__':
     # 输入用例id
     #报告用例id，正在执行时
     # all_report_id="6904a6f4-0e51-4f41-a0b1-a10c902f2c71"
-    all_report_id="2730f9be-3ee2-4de4-8a22-fc311d5084da"
+    all_report_id="446ddb23-7915-434b-a363-c24fa06fd342"
     # get_result=MetersphereUtils.stop_report_single_plan_test(all_report_id)
     # print(get_result)
     list_object = report_data(all_report_id)
@@ -22,7 +22,8 @@ if __name__ == '__main__':
         print(get_tmp)
     #查看单个用例情况
     get_tmp= \
-       {'id': 'a5b20354-b7aa-4b4d-bb9b-32f83007919e', 'userId': 'admin', 'reportId': '1f4ea7c0-5f48-4dbd-8754-ac76f635127c', 'name': '撤销操作'}
+    {'id': '7d210c66-e4f1-43d0-a34f-b505cb9f802e', 'userId': 'admin',
+     'reportId': 'cb3f57f6-c3ff-4c8c-b178-fe47099fe377', 'name': 'copy_小于100金额无分期_3f03'}
     id=get_tmp["id"]
     user_id=get_tmp["userId"]
     sub_report_id=get_tmp["reportId"]
@@ -33,4 +34,4 @@ if __name__ == '__main__':
     for i in range(0,100):
         sleep(30)
         MexReportRunningStepDetail.running_process(sub_report_id)
-    #
+
