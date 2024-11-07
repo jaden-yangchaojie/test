@@ -1,9 +1,7 @@
 import json
 import re
 
-import MetersphereUtils
-from ColInstallment import ColScenarioHandler
-
+from MetersphereInterface import MetersphereUtils
 
 
 def get_batch_id(module_id):

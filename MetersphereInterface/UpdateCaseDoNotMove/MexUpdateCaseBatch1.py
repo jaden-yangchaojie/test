@@ -1,9 +1,7 @@
 import json
 import re
 
-import MetersphereUtils
-from ColInstallment import ColScenarioHandler
-
+from MetersphereInterface import MetersphereUtils
 
 
 def get_batch_id(module_id):
@@ -13,8 +11,8 @@ def get_batch_id(module_id):
     return get_batch_ids
 
 # def handler_update_name(id):
-#     scenario_id = ColScenarioHandler.get_scenario_detail_id_by_search_id(id) if id.isdigit() else id
-#     data = ColScenarioHandler.get_scenario_detail_all_info(scenario_id)
+#     scenario_id = MetersphereUtils.get_scenario_detail_id_by_search_id(id) if id.isdigit() else id
+#     data = MetersphereUtils.get_scenario_detail_all_info(scenario_id)
 #
 #     get_sce_data = data.get("data").get("scenarioDefinition")
 #     result = json.loads(get_sce_data)
@@ -23,7 +21,7 @@ def get_batch_id(module_id):
 #     data["data"]["name"] = "dfl逾期DQ操作1"
 #     get_post_data = data["data"]
 #     # get_daa=json.dumps(get_post_data)
-#     ColScenarioHandler.update_scenario_detail(get_post_data)
+#     MetersphereUtils.update_scenario_detail(get_post_data)
 def fibonacci_handler(result):
     get_name=result["name"]
     if "copy_" in get_name:
@@ -46,8 +44,8 @@ def fibonacci_handler(result):
 
 
 def handler_process(id):
-    scenario_id= ColScenarioHandler.get_scenario_detail_id_by_search_id(id) if id.isdigit() else id
-    data = ColScenarioHandler.get_scenario_detail_all_info(scenario_id)
+    scenario_id= MetersphereUtils.get_scenario_detail_id_by_search_id(id) if id.isdigit() else id
+    data = MetersphereUtils.get_scenario_detail_all_info(scenario_id)
     get_sce_data = data.get("data").get("scenarioDefinition")
     result=json.loads(get_sce_data)
     #todo
@@ -56,11 +54,11 @@ def handler_process(id):
     data["data"]["scenarioDefinition"]=result
     get_post_data=data["data"]
     # get_daa=json.dumps(get_post_data)
-    get_info_udpate=ColScenarioHandler.update_scenario_detail(get_post_data)
+    get_info_udpate=MetersphereUtils.update_scenario_detail(get_post_data)
     print()
 def handler_process_data(id):
-    scenario_id= ColScenarioHandler.get_scenario_detail_id_by_search_id(id) if id.isdigit() else id
-    data = ColScenarioHandler.get_scenario_detail_all_info(scenario_id)
+    scenario_id= MetersphereUtils.get_scenario_detail_id_by_search_id(id) if id.isdigit() else id
+    data = MetersphereUtils.get_scenario_detail_all_info(scenario_id)
     get_sce_data = data.get("data").get("scenarioDefinition")
     result=json.loads(get_sce_data)
     data["data"]["scenarioDefinition"]=result
@@ -72,7 +70,7 @@ def handler_process_data(id):
     data["data"]["name"] = get_name
     get_post_data=data["data"]
     # get_daa=json.dumps(get_post_data)
-    get_info_udpate=ColScenarioHandler.update_scenario_detail(get_post_data)
+    get_info_udpate=MetersphereUtils.update_scenario_detail(get_post_data)
     print()
 if __name__ == '__main__':
     #输入用例id

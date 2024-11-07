@@ -1,6 +1,6 @@
 import json
 
-from MexInstallment import MetersphereUtils
+from MetersphereInterface import MetersphereUtils
 
 
 #批量修改任务id和其他参数用例

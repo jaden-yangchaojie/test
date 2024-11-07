@@ -1,9 +1,7 @@
 import json
 import re
 
-import MetersphereUtils
-from ColInstallment import ColScenarioHandler
-
+from MetersphereInterface import MetersphereUtils
 
 
 def get_batch_id(module_id):
@@ -12,8 +10,8 @@ def get_batch_id(module_id):
 ])
     return get_batch_ids
 def handler_process_data(id, project_id, set_running_env_id):
-    scenario_id= ColScenarioHandler.get_scenario_detail_id_by_search_id(id) if id.isdigit() else id
-    data = ColScenarioHandler.get_scenario_detail_all_info(scenario_id)
+    scenario_id= MetersphereUtils.get_scenario_detail_id_by_search_id(id) if id.isdigit() else id
+    data = MetersphereUtils.get_scenario_detail_all_info(scenario_id)
     get_sce_data = data.get("data").get("scenarioDefinition")
     result=json.loads(get_sce_data)
     result['environmentMap'] = {project_id: set_running_env_id}
@@ -26,7 +24,7 @@ def handler_process_data(id, project_id, set_running_env_id):
     data["data"]['environmentType'] ="JSON"
     get_post_data=data["data"]
     # get_daa=json.dumps(get_post_data)
-    get_info_udpate=ColScenarioHandler.update_scenario_detail(get_post_data)
+    get_info_udpate=MetersphereUtils.update_scenario_detail(get_post_data)
     print(get_info_udpate)
 if __name__ == '__main__':
     #输入用例id
