@@ -13,8 +13,8 @@ def get_batch_id(module_id_list):
     get_batch_ids = MetersphereUtils.get_batch_ids(1, 50,module_id_list)
     return get_batch_ids
 def handler_process_data(id, insert_hash_tree_data):
-    scenario_id= ColScenarioHandler.get_scenario_detail_id_by_search_id(id) if id.isdigit() else id
-    data = ColScenarioHandler.get_scenario_detail_all_info(scenario_id)
+    scenario_id= MetersphereUtils.get_scenario_detail_id_by_search_id(id) if id.isdigit() else id
+    data = MetersphereUtils.get_scenario_detail_all_info(scenario_id)
     get_sce_data = data.get("data").get("scenarioDefinition")
     result=json.loads(get_sce_data)
     hashTree=list(result["hashTree"])
@@ -22,7 +22,7 @@ def handler_process_data(id, insert_hash_tree_data):
     result["hashTree"]=hashTree
     data["data"]["scenarioDefinition"] = result
     get_post_data = data["data"]
-    get_info_udpate=ColScenarioHandler.update_scenario_detail(get_post_data)
+    get_info_udpate=MetersphereUtils.update_scenario_detail(get_post_data)
     print(get_info_udpate)
 if __name__ == '__main__':
     #输入用例id
@@ -37,8 +37,8 @@ if __name__ == '__main__':
 ]
     get_ids=get_batch_id(module_id_list)
     insert_detail_id="b5ac8a8a-f3f2-4d0c-b037-3a4980ef91bb"
-    scenario_id = ColScenarioHandler.get_scenario_detail_id_by_search_id(insert_detail_id) if insert_detail_id.isdigit() else insert_detail_id
-    data = ColScenarioHandler.get_scenario_detail_all_info(scenario_id)
+    scenario_id = MetersphereUtils.get_scenario_detail_id_by_search_id(insert_detail_id) if insert_detail_id.isdigit() else insert_detail_id
+    data = MetersphereUtils.get_scenario_detail_all_info(scenario_id)
     get_sce_data = data.get("data").get("scenarioDefinition")
     result = json.loads(get_sce_data)
     result['referenced']='REF'
