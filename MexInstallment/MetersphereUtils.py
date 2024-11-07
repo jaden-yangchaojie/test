@@ -148,7 +148,6 @@ def request_http(s, accessKey, secretKey):
 
 def get_project_env(project_id="11406dc7-8340-401f-813f-3511a97d3fbb"):
     s = requests.session()
-    s = request_http(s, accessKey, secretKey)
 
     url = host + "/api/environment/project-env"
     post_data = [project_id]
