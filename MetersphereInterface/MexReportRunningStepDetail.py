@@ -1,3 +1,5 @@
+from time import sleep
+
 import MetersphereUtils
 
 
@@ -12,8 +14,11 @@ def running_process(id):
 if __name__ == '__main__':
     # 输入用例id
     #报告用例id，正在执行时
-    get_result_all_steps_status = running_process("c5f8c064-7b7b-40ff-8675-e04a9014a94f")
-    print(get_result_all_steps_status)
-    if str(get_result_all_steps_status).count("ERROR")>0:
-        print("有报错。。。。。。。。。")
+    test_id="4bd56eff-0451-47dd-b133-9746891494ba"
+    for i in range(0, 100):
+        get_result_all_steps_status = running_process(test_id)
+        print(get_result_all_steps_status)
+        if str(get_result_all_steps_status).count("ERROR")>0:
+            print("有报错。。。。。。。。。")
+        sleep(30)
     # find_process("6cbf57db-ee2e-4965-8b71-d661d56e9932")

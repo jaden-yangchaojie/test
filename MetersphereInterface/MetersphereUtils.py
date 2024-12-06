@@ -94,6 +94,7 @@ def get_scenario_detail_id_by_search_id(id):
         print("没有搜索该用例id")
         sys.exit()
     scenario_id=listObject[0]["id"]
+
     return scenario_id
 
 
@@ -340,6 +341,30 @@ def get_test_plan_report_running_report_test_ids(get_id):
 
     get_step_all = jsonpath.jsonpath(steps, "$..totalStatus")
     return get_step_all
+
+def get_test_plan_report_all_running_detail_info(userId="admin"):
+    s = requests.session()
+    s = request_http(s, accessKey, secretKey)
+
+    url = host + "/track/task/center/list/1/20"
+    post_data={"triggerMode":"","executionStatus":"RUNNING","executor":"admin","projectId":"11406dc7-8340-401f-813f-3511a97d3fbb","userId":"admin","activeName":"SCENARIO"}
+    pp = json.dumps(post_data)
+    r = s.post(url, data=pp)
+
+    get_result=r.json()
+    list_object=get_result.get("data").get("listObject")
+    if len(list(list_object))==0:
+        print("没有在跑的用例")
+        return False
+
+    get_ids = jsonpath.jsonpath(list_object, "$..id")
+    get_name = jsonpath.jsonpath(list_object, "$..name")
+
+    dict_data={}
+    for i,get_one in enumerate(get_ids):
+        dict_data[get_one]=get_name[i]
+    return dict_data
+
 def rerun_report_single_plan_test(all_report_id,id,sub_report_id,user_id):
     s = requests.session()
     s = request_http(s, accessKey, secretKey)

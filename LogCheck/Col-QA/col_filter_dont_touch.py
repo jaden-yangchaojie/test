@@ -4,7 +4,10 @@ import sys
 import time
 import subprocess
 # 执行一个Linux命令,如果出现returned non-zero exit status 1，是没有捞取到数据
-view_filter_word=["the auth info of transaction not found","The number of mq delivery times is"]
+view_filter_word=["the auth info of transaction not found","The number of mq delivery times is"
+    , "credit view not find unsettled statement.",
+                  "statement.activity.consume.msg.times.log.error"
+                  ]
 trading_filter_word=["error.charge.interest.auth",
              "Transaction rolled back because it has been marked as rollback-only",
                   "installment | refundAllocation fail."  #合理的用户级锁
@@ -13,13 +16,23 @@ trading_filter_word=["error.charge.interest.auth",
                      "CertPathValidatorException"
                      ,"Installment task processing occurs system error."
                      ,"Application run failed","err.interest.check"
+    ,"post fail caused by auth apply status not pending"
+    # ,"installment AMP post fail","consumer fail and retry exceed max times"
+                     ,"credit line is insufficient","13130011000017697126"
+,"secretID"
+
                      ]
 statement_filter_word=["total.payment.amount.calc.error.",
                        "Transaction rolled back because it has been marked as rollback-only.",
                        "error.payment.statement.",
                        "error.statement.payment.","DAY_CUT_SCHEDULE",".aws.", "CertPathValidatorException",
-                       "Application run failed","auth.transaction.not.exist."]
+                       "Application run failed","auth.transaction.not.exist."
+                       ,"DELINQUENCY"
+                        ,"Origin tx not exist",
+
+                       "error.process.charge.transaction"]
 if __name__ == '__main__':
+    # assert "123"==1
     get_path=os.getcwd()
     print(get_path)
     get_files_name=[]

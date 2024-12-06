@@ -13,7 +13,7 @@ if __name__ == '__main__':
                 print(get_one)
                 # get_gramm=str.format('kubectl -n colombia exec -it {} grep "Excep" logs/run/common-error.log|grep 2022',get_one)
                 get_gramm = str.format(
-                    'kubectl -n colombia exec -it {} grep "2022-" logs/run/common-error.log', get_one)
+                    'kubectl -n colombia exec -it {} grep "2022-" /home/admin/logs/run/common-error.log', get_one)
 
                 print (get_gramm)
                 get_info=subprocess.check_output( get_gramm,shell=True)
