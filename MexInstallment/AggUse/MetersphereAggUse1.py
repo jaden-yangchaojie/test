@@ -7,8 +7,10 @@ from ast import literal_eval
 from datetime import datetime
 
 from ColInstallment import ColScenarioHandler
-from MexInstallment import MetersphereUtils
+
 import jsonpickle
+
+from MetersphereInterface import MetersphereUtils
 
 key = 'scenarioDefinition'
 

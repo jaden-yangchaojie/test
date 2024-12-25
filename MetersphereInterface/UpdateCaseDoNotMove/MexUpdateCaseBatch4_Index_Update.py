@@ -19,10 +19,8 @@ def handler_process_data(id, insert_hash_tree_data):
     result=json.loads(get_sce_data)
     hashTree=list(result["hashTree"])
     for i, get_data in enumerate(hashTree):
-        if get_data["type"] == "scenario" and get_data["enable"] == True:
-            # if get_data['num'] == 104875 or:
-            if get_data['num'] == 100452:
-                hashTree[i]["enable"]=False
+        hashTree[i]["index"]=i+1
+
     result["hashTree"]=hashTree
     data["data"]["scenarioDefinition"] = result
     get_post_data = data["data"]
@@ -31,22 +29,17 @@ def handler_process_data(id, insert_hash_tree_data):
 if __name__ == '__main__':
     #输入用例id
     # module_id="5a750d10-7327-4c71-ad9c-57d143809187"
+    # MCI/ #MSI
+    module_id_list=[
+  "87343a4d-3a0c-43f5-9e35-0b4d45d0df33",
+  "66bb5ed9-9802-4ae3-b491-8733f9ebf8f8",
+  "74742167-1150-43a3-b19e-e46b154d533b",
+  "8b66890e-0e6a-4bee-b22d-826b9b5b5b7a",
+  "c9bd4106-768f-4932-8dbe-4c8b47cbb37e",
+  "03a2c9e0-cb7a-4c70-ad0b-3025d86ecb30"
+]
 
-    module_id_list = [
-        "8eb53f76-f032-4e92-8396-16357612f2d6",
-        "252c7ded-c1bd-41ab-98b9-a8c7e7f2f663"
-    ]
-    # MSI
-    # module_id_list = [
-    #     "44cb03af-f6e0-4f6a-813f-60f061b0f09d",
-    #     "26ce0b3d-4a3a-4958-8301-b5ab5a76cb05",
-    #     "7887c215-0feb-4486-911b-3927a72e4a47",
-    #     "91a5538d-c326-46bc-aa68-f842ad99dada",
-    #     "6933991f-e132-4580-8efe-5ef8de86f3ea"
-    # ]
-    # module_id_list = [
-    #     "d6dbe6e4-ebd8-4f94-8200-116d13a8beea"
-    # ]
+
     get_ids=get_batch_id(module_id_list)
     insert_detail_id="5b00d3bd-21de-4992-8d58-a88e9f6ebeef"
     scenario_id = MetersphereUtils.get_scenario_detail_id_by_search_id(insert_detail_id) if insert_detail_id.isdigit() else insert_detail_id

@@ -4,13 +4,13 @@ import re
 from MetersphereInterface import MetersphereUtils
 
 
-def handler_process_data1(get_data):
-    id="54eb3c5d-dd11-4342-bc20-e2af5cd9a3a6"
+def handler_process_data1(get_data, id):
+
     scenario_id = MetersphereUtils.get_scenario_detail_id_by_search_id(id) if id.isdigit() else id
     data = MetersphereUtils.get_scenario_detail_all_info(scenario_id)
     # get_sce_data = data.get("data").get("scenarioDefinition")
     get_columns = get_data
-    scenarioDefinition=get_columns['newValue']
+    scenarioDefinition=get_columns['originalValue']
     result=json.loads(scenarioDefinition)
     # result['environmentMap'] = {"11406dc7-8340-401f-813f-3511a97d3fbb": "d2723bd0-7959-4c8f-b4ca-864469a6dc20"}
     data["data"]["scenarioDefinition"]=result
@@ -26,13 +26,14 @@ def handler_process_data1(get_data):
 if __name__ == '__main__':
     #输入用例id
     #自动化场景回退到某个版本
-    get_list=MetersphereUtils.operating_log_get_source()
+    id = "cf138097-6da3-499c-bdfe-54f80c8dc68d"
+    get_list=MetersphereUtils.operating_log_get_source(id)
     get_list=get_list["data"]["listObject"]
     for i,get_one in enumerate(get_list):
-        if i==7:
+        if i==2:
             # print(get_one)
             get_data=get_one['details']['columns']
 
-            get_data=get_data[0]
+            get_data=get_data[1]
             handler_process_data1(get_data)
 

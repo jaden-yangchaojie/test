@@ -33,11 +33,14 @@ def fibonacci_handler(result):
     for  i,get_data in enumerate(hashTree):
         if get_data["type"] == "scenario"  and get_data["enable"] == True:
             if get_data['num']==100452:
-            # if str(get_data['name']).count('出账')>0 and get_data['num']==100562 :
-                result["hashTree"][i]['num'] = "104875"
-                result["hashTree"][i]['id']="5b00d3bd-21de-4992-8d58-a88e9f6ebeef"
-                result["hashTree"][i]['referenced']="REF"
-
+                if str(get_data['hashTree']).count('GID')>0 :
+                    tmp=hashTree[i]
+                    tem_2=str(tmp).replace("GID","THALES")
+                    result["hashTree"][i]=eval(tem_2)
+                    # result["hashTree"][i] = "GID"
+                    # result["hashTree"][i]['id']="5b00d3bd-21de-4992-8d58-a88e9f6ebeef"
+                    # result["hashTree"][i]['referenced']="REF"
+                    break
             # if get_data['num']==102260:
             #     result["hashTree"][i]['referenced']="REF"
 
@@ -77,11 +80,11 @@ def handler_process_data(id):
 if __name__ == '__main__':
     #输入用例id
     module_id=[
-  "318ad5f2-7d95-4b1c-a06c-ff4d9445a866",
-  "1a26e9eb-0d81-43da-bcfa-230c31ab9576",
-  "368982c9-2e96-4465-a3c0-7bbcdf800385",
-  "6f5300aa-9b2b-40f5-9a43-23320f3d2015",
-  "c3fc0c30-03d5-4634-a68a-4b2142908974"
+  "b2a54dc5-21f0-4aed-970b-037f1ef56cbe",
+  "28859d83-4947-4c45-94cb-01f5c41a6006",
+  "859a5a9f-29b9-4753-a891-953e62cfc2e8",
+  "c3865a04-64fc-4521-8082-6055466f97c3",
+  "b8beeb5c-6924-4619-96fb-8a624285aa5c"
 ]
     get_ids=get_batch_id_list(module_id)
     for get_id in get_ids:

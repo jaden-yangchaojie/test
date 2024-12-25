@@ -269,6 +269,13 @@ def get_batch_ids(page_no, page_size,module_ids_list):
                  "unSelectIds": [], "name": "", "combine": {},
                  "moduleIds":module_ids_list
                  }
+    # post_data = {"filters": {"status": ["Prepare", "Underway", "Completed"]},
+    #              "orders": [{"name": "name", "type": "asc"}],
+    #              "projectId": "4d8ddb12-9d98-4087-8cf7-84d80b9370d9",
+    #              "selectThisWeedData": false, "executeStatus": null, "selectDataRange": null, "selectAll": false,
+    #              "unSelectIds": [], "name": "", "combine": {},
+    #              "moduleIds": module_ids_list
+    #              }
     pp = json.dumps(post_data)
     r = s.post(url, data=pp)
     listObject = r.json().get("data").get("listObject")

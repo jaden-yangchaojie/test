@@ -4,8 +4,11 @@ import time
 from datetime import datetime
 
 from ColInstallment import ColScenarioHandler
-from MexInstallment import MetersphereUtils
+
 import jsonpickle
+
+from MetersphereInterface import MetersphereUtils
+
 key = 'scenarioDefinition'
 def update(key,dict_data):
     #判断需要修改的key是否在初始字典中，在则修改

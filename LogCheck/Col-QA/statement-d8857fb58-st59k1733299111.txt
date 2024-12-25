@@ -1,4 +1,0 @@
-2022-10-25 12:00:25.744 [main] ERROR [,] c.s.f.c.shared.aws.SecretsManagerUtil - secret  load fail, secretID:col-CoreBankingFundcoreSecretQa
-2022-10-25 12:00:26.094 [main] ERROR [,] org.springframework.boot.SpringApplication - Application run failed
-2022-12-05 12:02:15.786 [main] ERROR [,] c.s.f.c.shared.aws.SecretsManagerUtil - secret  load fail, secretID:col-CoreBankingFundcoreSecretQa
-2022-12-05 12:02:16.163 [main] ERROR [,] org.springframework.boot.SpringApplication - Application run failed

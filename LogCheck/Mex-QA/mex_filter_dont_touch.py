@@ -8,7 +8,9 @@ view_filter_word=["the auth info of transaction not found","The number of mq del
 trading_filter_word=["error.charge.interest.auth",
              "Transaction rolled back because it has been marked as rollback-only",
                   "installment | refundAllocation fail."  #合理的用户级锁
-                     ,"min.paid.statements.can.not.be.empty.after.ignore.non.dq.statement"
+                     ,"min.paid.statements.can.not.be.empty.after.ignore.non.dq.statement",
+                     "Cannot get the service address of service",
+                     "交易打标失败，根据expressionString获取expression缓存失败"
                      ]
 statement_filter_word=["total.payment.amount.calc.error.",
                        "Transaction rolled back because it has been marked as rollback-only.",

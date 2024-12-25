@@ -26,14 +26,8 @@ def handler_process_data(id, project_id, set_running_env_id):
 if __name__ == '__main__':
     #输入用例id
     module_id_list = [
-        "5cd506d1-0083-4e7d-85df-7ba228b5baa0",
-        "2eac8cf4-b4f5-45a8-93f0-ebab868a854d",
-        "5869dab0-83fa-4b3a-a7a0-ed9d941b829b",
-        "807d2f75-0d99-45e8-83e5-f9fb868d3cb1",
-        "c9ae059d-4589-46bd-b02f-3f625cd52817",
-        "71b0fff8-fcfb-4b53-baa7-2bcb3d22aeb1",
-        "321b5420-04da-4f9b-865c-01e5aa2159af",
-        "78875e78-6531-4715-9f8e-73dbd94a704b"
+        "8eb53f76-f032-4e92-8396-16357612f2d6",
+        "252c7ded-c1bd-41ab-98b9-a8c7e7f2f663"
     ]
     # MSI
     # module_id_list = [

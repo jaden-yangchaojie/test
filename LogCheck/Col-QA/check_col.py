@@ -17,7 +17,7 @@ if __name__ == '__main__':
 
                 print (get_gramm)
                 get_info=subprocess.check_output( get_gramm,shell=True)
-                with open(get_one+str(int(time.time()))+'.txt', 'w') as file:
+                with open(get_one+"-"+str(int(time.time()))+'.txt', 'w') as file:
                     file.write(get_info.decode("utf-8"))
                     file.close()
                 # statement ->credit-view
@@ -26,7 +26,7 @@ if __name__ == '__main__':
                         'kubectl -n colombia exec -it {} grep "ERROR" logs/credit-view/common-error.log', get_one)
                     print(get_gramm)
                     get_info = subprocess.check_output(get_gramm,shell=True,universal_newlines=True)
-                    with open(get_one+".credit-view" + str(int(time.time())) + '.txt', 'w') as file:
+                    with open(get_one+"-credit-view" + str(int(time.time())) + '.txt', 'w') as file:
                         file.write(get_info)
                         file.close()
             except Exception as e:
