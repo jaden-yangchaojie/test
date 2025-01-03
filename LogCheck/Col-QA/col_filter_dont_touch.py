@@ -17,7 +17,7 @@ trading_filter_word = ["error.charge.interest.auth",
                        "Ignore task process",
                        "CertPathValidatorException"
     , "Installment task processing occurs system error."
-    , "Application run failed", "err.interest.check"
+    , "Application run failed"
     , "post fail caused by auth apply status not pending"
     , "credit line is insufficient"
     , "secretID",

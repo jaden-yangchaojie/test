@@ -39,28 +39,19 @@ def only_find(get_data, dds):
 
 if __name__ == '__main__':
     # 输入用例id
-    module_ids_list=[
-  "c252ced6-b1d1-49ec-9f0b-21a3028cd48c",
-  "cab35b7a-0b79-4b59-86bf-ef2cb98a89a5",
-  "215d2b0f-94fe-44a0-9ae5-5a38359dbda2",
-  "1014bc27-e5b0-4fe3-abb8-5d93bc507fdc",
-  "05f88e9a-4581-4095-8149-cc8557ee8262",
-  "095a64ef-3ca7-41ed-857d-27e3b9ea6af6",
-  "db96f904-7441-41b1-bb3e-33af3eeb3e17",
-  "e00c1576-be16-4eb5-b8e1-3785d330ec76",
-  "c83c8e7f-7026-414e-b74a-457c28ba19e2",
-  "541f6421-56e1-40c2-9e59-24b60e9720d3",
-  "b0e877f8-2ba1-499c-a922-8b4a71b3c941",
-  "f3cfd270-efbe-4bb3-b2c3-93e1d9ccf86b",
-  "52de5366-ac7b-403d-87c9-05b55c9c8269",
-  "2bc2a96c-b1fa-41a9-9b98-10f4efdeb59f",
-  "e3a1cf0e-6fa5-4a7c-99f8-a3a20a511955",
-  "5fa612fc-8912-44d1-9129-7c2aa40fb245",
-  "73e26b1d-869c-4d66-9785-a40e30486934",
-  "e84d2051-2628-4ece-be9b-439a8182b04d",
-  "29f7119b-0148-4216-8dde-228811348f4b",
-  "e39bf86c-4144-4ac4-ac5c-4d81a173924f"
-]
+    module_ids_list= \
+        [
+            "6a652fe4-18b1-4dad-9490-aadb5c9dfc2b",
+            "31981617-83e2-4c47-846e-426696259567",
+            "2e1be7ed-3cb4-44b8-b4b0-7423669a2897",
+            "cca06efa-ab32-4b31-9bfb-37d245cfe8cf",
+            "ebb09a4a-3f80-4f9c-9510-4b15ab96b971",
+            "fd14e1ad-a3b8-4e27-b0ef-051b922ab232",
+            "537e301a-0b49-4124-9e03-266fa60c5983",
+            "497e7bd4-8dbf-4b05-b38b-a1afa8d940c1",
+            "a1fa0e02-2478-4e15-a4d1-056cd9237a09"
+        ]
+    #  'environmentJson': '{}',ref  ,copy没有
     get_batch_ids = MetersphereUtils.get_batch_ids(1, 50, module_ids_list)
     for get_one_id in get_batch_ids:
         find_process(get_one_id)

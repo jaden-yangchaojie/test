@@ -268,6 +268,7 @@ def get_batch_ids(page_no, page_size,module_ids_list):
                  "selectThisWeedData": false, "executeStatus": null, "selectDataRange": null, "selectAll": false,
                  "unSelectIds": [], "name": "", "combine": {},
                  "moduleIds":module_ids_list
+
                  }
     # post_data = {"filters": {"status": ["Prepare", "Underway", "Completed"]},
     #              "orders": [{"name": "name", "type": "asc"}],
