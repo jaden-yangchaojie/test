@@ -56,7 +56,7 @@ def handler_process(id):
 if __name__ == '__main__':
     # 输入用例id
     module_id =[
-  "5fa612fc-8912-44d1-9129-7c2aa40fb245"
+
 ]
     get_ids = get_batch_id_list(module_id)
     for get_id in get_ids:
