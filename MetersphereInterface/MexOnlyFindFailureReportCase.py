@@ -18,8 +18,8 @@ if __name__ == '__main__':
     # 输入用例id
     #要找的keyword
     # keyword="13130011000019075040"
-    keyword = "11110211000000635978"
-    get_list_id = get_batch_report_id("b8cce8e7-5b87-4654-b9a4-22df62b7c0b1")
+    keyword = "13130011000020443880"
+    get_list_id = get_batch_report_id("cc51b79c-7833-49ef-8d14-0b48b835ad42")
     for get_one_id in get_list_id:
         find_process(get_one_id, keyword)
     # get_list_id = get_batch_report_id("0f24039d-e152-45f2-80f3-de63e62ea936")

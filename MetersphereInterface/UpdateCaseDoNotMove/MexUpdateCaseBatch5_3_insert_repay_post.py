@@ -85,14 +85,14 @@ def handler_process_data(id, insert_hash_tree_data):
 
 if __name__ == '__main__':
     # 输入用例id
-    module_id = [
-        "62c14f01-4410-44ce-a222-096e2c86d444",
-        "e535a5cd-a663-4549-8d2c-db601c5b6189",
-        "5a750d10-7327-4c71-ad9c-57d143809187",
-        "cbe0e9dc-f69f-4ed8-ab80-d58f35f4c927",
-        "03a5f314-f6bc-4c3f-afe8-deaff4b917f8",
-        "f8008aa2-4ebf-4959-b44d-d7dc00a9d8cc"
-    ]
+    module_id =[
+  "87343a4d-3a0c-43f5-9e35-0b4d45d0df33",
+  "66bb5ed9-9802-4ae3-b491-8733f9ebf8f8",
+  "74742167-1150-43a3-b19e-e46b154d533b",
+  "8b66890e-0e6a-4bee-b22d-826b9b5b5b7a",
+  "c9bd4106-768f-4932-8dbe-4c8b47cbb37e",
+  "03a2c9e0-cb7a-4c70-ad0b-3025d86ecb30"
+]
     get_ids = get_batch_id_list(module_id)
     # for get_id in get_ids:
     #     handler_process(get_id)

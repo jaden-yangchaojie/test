@@ -37,6 +37,7 @@ statement_filter_word = ["total.payment.amount.calc.error.",
                          "openFlag:credit.view.statement.list.no.activity.open.flag",
                          "Origin tx not exist",
                          "auth.transaction.not.exist",
+                         "13130011000020255946"
                          # "error.payment.statement.",
                          # "error.statement.payment.",
                          #
