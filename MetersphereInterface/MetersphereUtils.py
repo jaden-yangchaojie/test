@@ -336,6 +336,26 @@ def get_test_plan_report_db_sce_failure_cases_and_unrun_cases_report_ids3(get_id
         sys.exit()
 
     return listObject
+
+def get_test_plan_report_db_sce_failure_cases_and_unrun_and_success_cases_report_ids4(get_id):
+    s = requests.session()
+    s = request_http(s, accessKey, secretKey)
+
+    url = host + "/track/test/plan/report/db/{}".format(get_id)
+
+    r = s.get(url)
+    get_data=r.json().get("data")
+    # scenarioAllCases
+    listObject = get_data.get('scenarioAllCases')
+    # listObject2 = get_data.get('unExecuteScenarios')
+    # for get_one in listObject2:
+    #     listObject.append(get_one)
+    listObjectId=jsonpath.jsonpath(listObject,"$..reportId")
+    if len(listObjectId) == 0:
+        print("没有搜索该报告id")
+        sys.exit()
+
+    return listObjectId
 def get_test_plan_report_running_report_test_ids(get_id):
     s = requests.session()
     s = request_http(s, accessKey, secretKey)

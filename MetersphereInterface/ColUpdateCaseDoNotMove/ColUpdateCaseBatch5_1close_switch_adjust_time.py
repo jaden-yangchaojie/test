@@ -26,7 +26,6 @@ def fibonacci_handler(result):
                         # 优先处理这个
                         if str(get_data['name']).count("触发调整时间") > 0 and str(get_data['hashTree']).count(
                                 "修改系统时间") > 0:
-                            if len(get_data['hashTree']) >= 2:
                                 for k, get_sub_data in enumerate(get_data['hashTree']):
                                     if str(get_sub_data['name']).count("触发调整时间") > 0:
                                         result["hashTree"][i]["hashTree"][k]["enable"] = False

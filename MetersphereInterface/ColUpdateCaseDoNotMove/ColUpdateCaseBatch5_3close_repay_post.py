@@ -30,7 +30,6 @@ def fibonacci_handler(result):
             if get_data["type"] == "scenario"  and get_data["enable"] == True:
 
                 if str(get_data).count("2022-09-25 ") > 0 and str(get_data['hashTree']).count("/xxl-job-admin/jobinfo/trigger")>0:
-                    if len(get_data['hashTree']) >= 2:
                         for k, get_sub_data in enumerate(get_data['hashTree']):
                             if str(get_sub_data['name']).count("xxljob账单日分期") > 0 or str(get_sub_data['name']).count("账单日分期本金入账")>0:
                                 result["hashTree"][i]["hashTree"][k]["enable"] = False
@@ -38,7 +37,6 @@ def fibonacci_handler(result):
 
                 elif str(get_data).count("2022-10-25 ") > 0 and str(get_data['hashTree']).count("/xxl-job-admin/jobinfo/trigger")>0:
                     # result["hashTree"][i]["hashTree"][2]["enable"] = False
-                    if len(get_data['hashTree']) >= 2:
                         for k, get_sub_data in enumerate(get_data['hashTree']):
                             if str(get_sub_data['name']).count("xxljob账单日分期") > 0 or str(get_sub_data['name']).count("账单日分期本金入账")>0:
                                 result["hashTree"][i]["hashTree"][k]["enable"] = False
@@ -46,7 +44,6 @@ def fibonacci_handler(result):
 
                 elif str(get_data).count("2022-11-25 ")>0 and str(get_data['hashTree']).count("/xxl-job-admin/jobinfo/trigger")>0:
                     # result["hashTree"][i]["hashTree"][2]["enable"] = False
-                    if len(get_data['hashTree']) >= 2:
                         for k, get_sub_data in enumerate(get_data['hashTree']):
                             if str(get_sub_data['name']).count("xxljob账单日分期") > 0 or str(get_sub_data['name']).count("账单日分期本金入账")>0:
                                 result["hashTree"][i]["hashTree"][k]["enable"] = False
@@ -54,7 +51,6 @@ def fibonacci_handler(result):
 
                 elif str(get_data).count("2022-12-25 ")>0 and str(get_data['hashTree']).count("/xxl-job-admin/jobinfo/trigger")>0:
                     # result["hashTree"][i]["hashTree"][2]["enable"] = False
-                    if len(get_data['hashTree']) >= 2:
                         for k, get_sub_data in enumerate(get_data['hashTree']):
                             if str(get_sub_data['name']).count("xxljob账单日分期") > 0 or str(get_sub_data['name']).count("账单日分期本金入账")>0:
                                 result["hashTree"][i]["hashTree"][k]["enable"] = False
