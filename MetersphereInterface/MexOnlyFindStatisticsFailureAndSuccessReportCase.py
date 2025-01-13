@@ -22,10 +22,7 @@ def find_process(id):
 
 if __name__ == '__main__':
     # 输入用例id
-    #要找的keyword
-
-
-    get_list_id = get_batch_report_id("5f29023f-0fb9-4d06-a19e-971ebd350ac0")
+    get_list_id = get_batch_report_id("e80a9ca1-330d-4f78-835d-79453456cefd")
     for get_one_id in get_list_id:
         find_process(get_one_id)
     # get_list_id = get_batch_report_id("0f24039d-e152-45f2-80f3-de63e62ea936")
