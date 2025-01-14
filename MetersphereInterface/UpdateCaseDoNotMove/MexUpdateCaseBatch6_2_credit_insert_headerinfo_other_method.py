@@ -109,10 +109,10 @@ def handler_process_data(id, insert_hash_tree_data):
 if __name__ == '__main__':
     # 输入用例id
     module_id = [
-        "9aa6c422-d881-4fd5-952c-2c4ad5896ee2"
-    ]
+  "eeb26f37-182b-41ee-bc19-3e30ab5b05cc"
+]
     get_ids = get_batch_id_list(module_id)
-    get_ids = ["e4de14f4-4675-4c78-a177-3b6bec48ea5b"]
+    # get_ids = ["e4de14f4-4675-4c78-a177-3b6bec48ea5b"]
     for get_id in get_ids:
         handler_process_data(get_id, {'enable': True, 'file': False, 'name': 'X-Customer-Id', 'required': True,
                                       'urlEncode': False, 'valid': True, 'value': '${X-Customer-Id}'})

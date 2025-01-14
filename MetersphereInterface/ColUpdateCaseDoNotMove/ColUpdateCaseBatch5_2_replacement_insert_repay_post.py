@@ -38,8 +38,8 @@ def fibonacci_handler(result, insert_hash_tree_data):
                 # elif str(get_data['name']).count("分期本金入账") > 0  and str(get_data['name']).count("2022-")== 0 :
                 #     hashTree.insert(i + 1, insert_hash_tree_data)
                 #     print("直接插入数据")
-                if (str(get_data).count("2022-") > 0 or str(get_data).count("2023-") > 0) and str(get_data['hashTree']).count("/xxl-job-admin/jobinfo/trigger") > 0\
-                        and str(get_data).count("分期本金入账") > 0 :
+                if (str(get_data["name"]).count("2022-") > 0 or str(get_data).count("2023-") > 0) and str(get_data['hashTree']).count("/xxl-job-admin/jobinfo/trigger") > 0\
+                        and str(get_data).count("账单日分期本金入账") > 0 :
                     # bool_insert=False
                     # if len(get_data['hashTree']) >= 2:
                     #     for k, get_sub_data in enumerate(get_data['hashTree']):
@@ -49,7 +49,7 @@ def fibonacci_handler(result, insert_hash_tree_data):
                     #     if bool_insert==True:
                     hashTree.insert(i + 1, insert_hash_tree_data)
                     print("处理1下有时间和调整")
-                elif str(get_data['name']).count("分期本金入账") > 0:
+                elif str(get_data['name']).count("账单日分期本金入账") > 0:
                     hashTree.insert(i + 1, insert_hash_tree_data)
                     print("直接插入数据")
 
@@ -94,7 +94,7 @@ def handler_process_data(id, insert_hash_tree_data):
 if __name__ == '__main__':
     # 输入用例id
     module_id =[
-  "5fa612fc-8912-44d1-9129-7c2aa40fb245"
+  "b0e877f8-2ba1-499c-a922-8b4a71b3c941"
 ]
     get_ids = get_batch_id_list(module_id)
     # for get_id in get_ids:
