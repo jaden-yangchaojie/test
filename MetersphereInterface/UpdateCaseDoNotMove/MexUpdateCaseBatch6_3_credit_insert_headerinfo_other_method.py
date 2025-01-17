@@ -67,7 +67,7 @@ def only_find(get_data,insert_hash_tree_data):
             headers = list(get_data["headers"])
             get_headers_len=len(headers)
             #兼容
-            if get_headers_len>0 and headers[get_headers_len-1]["valid"]==False:
+            if get_headers_len>0 :
                 for k, get_sub_data in enumerate(headers):
                         if str(get_sub_data).count("X-Customer-Id") > 0:
                             print("兼容，删除")
@@ -81,16 +81,17 @@ def only_find(get_data,insert_hash_tree_data):
                 headers.append(insert_hash_tree_data)
             get_data["headers"]=headers
             print("chuli ")
-
-    if get_data["type"] == "scenario" and get_data["enable"] == True and (get_data['referenced']=="Copy" or get_data['referenced']=='Created'):
+    if get_data["type"] == "LoopController" and get_data["enable"] == True:
+        hashTree = get_data["hashTree"]
+        for subScenario in hashTree:
+            only_find(subScenario, insert_hash_tree_data)
+    if get_data["type"] == "scenario" and get_data["enable"] == True and 'referenced' in get_data  and (get_data['referenced']=="Copy" or get_data['referenced']=='Created'):
         hashTree = get_data["hashTree"]
         for subScenario in hashTree:
             only_find(subScenario,insert_hash_tree_data)
 
 
-def get_batch_id_list(module_ids):
-    get_batch_ids = MetersphereUtils.get_batch_ids(2, 50, module_ids)
-    return get_batch_ids
+
 
 
 def fibonacci_handler(result, insert_hash_tree_data):
@@ -116,24 +117,14 @@ def handler_process_data(id, insert_hash_tree_data):
 
 if __name__ == '__main__':
     # 输入用例id
-    module_id =[
-  "3908bb07-db8b-428a-a491-4829339f8983",
-  "ad23325c-292e-4c98-b0eb-adb5b65beab5",
-  "32f262dc-16fe-41f7-abfd-abb52755077a",
-  "49372faa-695a-4add-aa5e-b7a92d4fa86b",
-  "3653b516-2c90-4922-a409-3072a47c5665",
-  "00c67fd5-26ba-40a8-857b-0446a3325cf9",
-  "1a507c10-ee53-40d5-a345-d3fc485e14c4",
-  "dbab2217-17cf-4568-bca4-97478f835319",
-  "751eba06-a992-469b-a76f-879581fe12bc",
-  "32b769a2-330a-44e5-8e4c-c9627ca014b6",
-  "02a5e826-191d-46ec-b129-6580ccfbdd82",
-  "585018d8-65f0-4d07-8c71-09f8577e0e61",
-  "9467c339-b1eb-4c86-9034-45df6c26d14c",
-  "cfded6de-8bb6-4e98-8939-71060a550581",
-  "15c2fae4-1a3a-4b39-b816-7c2c1e775282"
+    module_ids =[
+  "07ce2a2d-1184-4f5b-921a-42e4cdaf4ecc",
+  "fb35155c-21cf-438c-afb3-a548ac0d1021",
+  "acb42b11-88fc-4759-80f4-cd2c56c45e65",
+  "f123421e-c190-4b61-964d-12bb4c65d897"
 ]
-    get_ids = get_batch_id_list(module_id)
+
+    get_ids = MetersphereUtils.get_batch_ids(1, 50, module_ids)
     # get_ids = ["e4de14f4-4675-4c78-a177-3b6bec48ea5b"]
     for get_id in get_ids:
         handler_process_data(get_id, {'enable': True, 'file': False, 'name': 'X-Customer-Id', 'required': True,

@@ -22,7 +22,7 @@ def find_process(id):
 
 if __name__ == '__main__':
     # 输入用例id
-    get_list_id = get_batch_report_id("86188735-a267-4635-821f-25223174038a")
+    get_list_id = get_batch_report_id("b11d9176-acd2-43ff-8da3-0a9b539d8c88")
     for get_one_id in get_list_id:
         find_process(get_one_id)
     # get_list_id = get_batch_report_id("0f24039d-e152-45f2-80f3-de63e62ea936")

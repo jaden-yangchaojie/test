@@ -68,11 +68,12 @@ def only_find(get_data, dds):
 
 if __name__ == '__main__':
     # 输入用例id
-    module_ids_list=[
-  "e169ce21-2d1a-44d9-a501-16b6db059a67"
-]
+#     module_ids_list=[
+#   "e169ce21-2d1a-44d9-a501-16b6db059a67"
+# ]
     #  'environmentJson': '{}',ref  ,copy没有
-    get_batch_ids = MetersphereUtils.get_batch_ids(1, 100, module_ids_list)
+    # get_batch_ids = MetersphereUtils.get_batch_ids(1, 100, module_ids_list)
+    get_batch_ids=["6d59c1cb-6ab2-4668-b3aa-a306712e82a9"]
     for get_one_id in get_batch_ids:
         find_process(get_one_id)
     # find_process("6cbf57db-ee2e-4965-8b71-d661d56e9932")
