@@ -1,0 +1,50 @@
+qa-test:
+  appHost : http://dfl.qa-test.storicard-qa.com
+  xxljobHost : http://k8s-default-xxljoblb-bd6801ed1d-39a74da3148f2a06.elb.us-east-1.amazonaws.com
+  bkoHost : http://k8s-qatest-gatewayb-281007cda4-99da3f7985292f2b.elb.us-east-1.amazonaws.com
+  coreHost : http://core.qa-test.storicard-qa.com
+  xxljobCookie : XXL_JOB_LOGIN_IDENTITY=7b226964223a312c22757365726e616d65223a2261646d696e222c2270617373776f7264223a226531306164633339343962613539616262653536653035376632306638383365222c22726f6c65223a312c227065726d697373696f6e223a6e756c6c7d
+  xxljobIdPayment : "671"
+  xxljobIdDQNotify : "667"
+  xxljobIdDQUpdate : "659"
+  xxljobIdStatement : "663"
+  xxljobIdBatchPayment : "1901"
+  Job_Credit_Statement_Auto_Create : "1894"
+  Job_Credit_Statement_Auto_Execute : "1895"
+  Job_Task_Benefit_Release_Process : "777"
+  Job_Task_Benefit_Expired_Process : "1039"
+
+qa:
+  appHost : http://dfl.storicard-qa.com
+  xxljobHost : http://k8s-default-xxljoblb-a5aee162b1-0fe5a32d33402b6a.elb.us-east-1.amazonaws.com
+  bkoHost : http://dfo-api.storicard-qa.com
+  coreHost : http://internal-k8s-default-gatewaya-65a3b2fa28-2005474628.us-east-1.elb.amazonaws.com
+  xxljobCookie : XXL_JOB_LOGIN_IDENTITY=7b226964223a312c22757365726e616d65223a2261646d696e222c2270617373776f7264223a226531306164633339343962613539616262653536653035376632306638383365222c22726f6c65223a312c227065726d697373696f6e223a6e756c6c7d
+  xxljobIdPayment : "1495"
+  xxljobIdDQNotify : "1491"
+  xxljobIdDQUpdate : "1675"
+  xxljobIdStatement : "1487"
+  Job_Credit_Statement_Auto_Create : "1889"
+  Job_Credit_Statement_Auto_Execute : "1890"
+  Job_Task_Benefit_Release_Process : "1685"
+  Job_Task_Benefit_Expired_Process : "1747"
+
+qa-shadow :
+  appKey : D63enekQ5IH6ncxWVnt6
+  bkoKey : S52pfOdwxXT0rkwWgpA6
+  api-key : 8WLgAqQ5NkKJTPZL82mL3qOmtAcAkyDGOAb5NaeNeMM=
+  api-secret : sl7uXZw+s9OK91EuIACgIHzv0qs2NQ5EdXPTXpi4psX=
+  tenantId : "SHADOWTNT"
+  entityId : "MXCC99990900"
+  crowdNo : "23121300100100111100000000093494"
+  benefitBatchNo : "23012000100100999100000000524704"
+
+qa-regular :
+  appKey : LHsMkMVjTWM4E7x9QzE1
+  bkoKey : 7EK5CKMYSEIX5CkexqtF
+  api-key : sKQq91g4ctRkLElI86vMeRNIPbhUc2qyEWxgbt6CGP8=
+  api-secret : hByKl5U+zzpMibm7MiEnjEsnBHC4ntATnEhjzKRw2fw=
+  tenantId : "STMXFINCORE0"
+  entityId : "MXCC20220000"
+  crowdNo : "23010100100100999100000000089343"
+  benefitBatchNo : "23012000100100111100000005378273"
