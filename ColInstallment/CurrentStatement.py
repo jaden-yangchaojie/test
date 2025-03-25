@@ -23,4 +23,9 @@ class  CurrentStatement:
         self.purchase_data_all=[]
         self.last_min_payment=0
         self.last_min_payment_had_payoff = False
-
+        #todo
+        #total payment = last total payment + purchase + int + fee + tax - reverse
+        self.paymentAmount=0
+        self.previousBalance=0
+        self.totalPayment=0
+        self.newBalance=0

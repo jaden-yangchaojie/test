@@ -25,25 +25,18 @@ tmp_set=set([])
 def only_find(get_data, dds):
     if get_data["type"] == "HTTPSamplerProxy" and get_data["enable"] == True:
         # get_path = get_data["path"]
-        # if str(get_data).count("authorizations")>0 or str(get_data).count("transaction")>0:
+        # if str(get_data).count("/api/admin/system/faketime")>0 :
+        #     if str(get_data).count("__timeShift")>0:
+        #         print(get_data["body"])
+            # get_list=jsonpath(get_data, "$..jsonPath")
+        if str(get_data).count("v1.0/credit/cards")>0:
+            # body=get_data["body"]['raw']
+            # print(json.loads(body)["product"]["productCode"])
+            # if str(body).count("BALANCE_INQUIRY")>0:
+                print("++++++++++++")
 
-        get_list=jsonpath(get_data, "$..jsonPath")
         # print(len(get_list))
 
-        bool_true=False
-        if len(get_list)>0:
-            for get_one in get_list:
-                if len(get_one)>0:
-                    print(get_data["path"])
-
-                    print(len(get_one))
-                    bool_true=True
-                    tmp_set.add(str(get_data["path"]))
-        if bool_true==False:
-            if str(get_data["path"]).count("13130011000004479041")==0:
-                print(str(get_data["path"]))
-                tmp_set.add(str(get_data["path"]))
-                # print("+++0")
         # if str(get_data).count("REFUND"):
             # # get_list = get_data["body"]["kvs"]
             # # if get_list[0]["value"]'' :
@@ -56,10 +49,10 @@ def only_find(get_data, dds):
 
     if get_data["type"] == "JDBCSampler" and get_data["enable"] == True:
         get_list = jsonpath(get_data, "$..regex")
-        if len(get_list) > 0:
-            for get_one in get_list:
-                if len(get_one) > 0:
-                    print("db断言："+str(len(get_one)) )
+        # if len(get_list) > 0:
+        #     for get_one in get_list:
+        #         if len(get_one) > 0:
+        #             print("db断言："+str(len(get_one)) )
 
     if get_data["type"] == "scenario" and get_data["enable"] == True :
         hashTree = get_data["hashTree"]
@@ -68,13 +61,17 @@ def only_find(get_data, dds):
 
 if __name__ == '__main__':
     # 输入用例id
-#     module_ids_list=[
-#   "e169ce21-2d1a-44d9-a501-16b6db059a67"
+    module_ids_list= [
+        "9aa6c422-d881-4fd5-952c-2c4ad5896ee2"
+        # "e169ce21-2d1a-44d9-a501-16b6db059a67"
+        ]
+#         [
+#   "9aa6c422-d881-4fd5-952c-2c4ad5896ee2"
 # ]
-    #  'environmentJson': '{}',ref  ,copy没有
-    # get_batch_ids = MetersphereUtils.get_batch_ids(1, 100, module_ids_list)
-    get_batch_ids=["6d59c1cb-6ab2-4668-b3aa-a306712e82a9"]
+     # 'environmentJson': '{}',ref  ,copy没有
+    get_batch_ids = MetersphereUtils.get_batch_ids(1, 100, module_ids_list)
+    # get_batch_ids=["6d59c1cb-6ab2-4668-b3aa-a306712e82a9"]
     for get_one_id in get_batch_ids:
         find_process(get_one_id)
     # find_process("6cbf57db-ee2e-4965-8b71-d661d56e9932")
-    print(tmp_set)
+    # print(tmp_set)

@@ -1,10 +1,12 @@
+import sys
+
 from MetersphereInterface import MetersphereUtils
 
 
 #批量修改任务id和其他参数用例
 
 def get_batch_report_id(get_id):
-    get_batch_ids = MetersphereUtils.get_test_plan_report_db_sce_failure_cases_report_ids(get_id)
+    get_batch_ids = MetersphereUtils.get_test_plan_report_db_sce_failure_cases_and_unrun_and_success_cases_report_ids4(get_id)
     return get_batch_ids
 
 
@@ -12,14 +14,15 @@ def find_process(id,keyword):
     get_content = MetersphereUtils.get_test_plan_report_id_get_content(id)
     if str(get_content).count(keyword)>0:
         print(get_content["name"])
+        sys.exit()
 
 
 if __name__ == '__main__':
     # 输入用例id
     #要找的keyword
     # keyword="13130011000019075040"
-    keyword = "13130011000020443880"
-    get_list_id = get_batch_report_id("cc51b79c-7833-49ef-8d14-0b48b835ad42")
+    keyword = "11110011000122831572"
+    get_list_id = get_batch_report_id("ac604531-66c5-4fb1-9f87-159d29fe749d")
     for get_one_id in get_list_id:
         find_process(get_one_id, keyword)
     # get_list_id = get_batch_report_id("0f24039d-e152-45f2-80f3-de63e62ea936")

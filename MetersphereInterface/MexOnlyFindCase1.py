@@ -17,14 +17,16 @@ def get_batch_id_list(module_ids):
 def fibonacci_handler(result):
     hashTree = result["hashTree"]
     for i, get_data in enumerate(hashTree):
-        if str(get_data).count("authorizations")>0 or str(get_data).count("transaction")>0:
 
-            get_list=jsonpath(get_data, "$..jsonPath")
-            # print(len(get_list))
-            if len(get_list)>0:
-                for get_one in get_list:
-                    if len(get_one)>0:
-                        print(len(get_one))
+        if str(get_data).count("11110011000113647656")>0:
+            if str(get_data).count("direct")>0:
+                print("++++++++++++")
+            # get_list=jsonpath(get_data, "$..jsonPath")
+        #     # print(len(get_list))
+        #     if len(get_list)>0:
+        #         for get_one in get_list:
+        #             if len(get_one)>0:
+        #                 print(len(get_one))
 
             # break
 
@@ -41,10 +43,11 @@ def handler_process(id):
 
 if __name__ == '__main__':
     #输入用例id
-    module_id=[
-  "e169ce21-2d1a-44d9-a501-16b6db059a67"
-]
-    get_ids=get_batch_id_list(module_id)
+#     module_id=[
+#   "ddc62a9d-3de3-4652-8250-c70106bf6608"
+# ]
+#     get_ids=get_batch_id_list(module_id)
+    get_ids=["145d4555-24e7-43a8-b1f6-960bf63e0729"]
     for get_id in get_ids:
         handler_process(get_id)
     # handler_process("102304")

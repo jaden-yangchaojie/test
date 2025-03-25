@@ -63,7 +63,11 @@ def update(key, dict_data):
 def only_find(get_data,insert_hash_tree_data):
     if get_data["type"] == "HTTPSamplerProxy" and get_data["enable"] == True:
         print(get_data["path"])
-        if str(get_data["path"]).count("v1.0")>0:
+        #如果是存款接口不用处理
+        if str(get_data["path"]).count("/v1.0/debit/")>0:
+            print("this is /v1.0/debit/ do nothing "+str(get_data["path"]))
+        #信用卡接口
+        elif str(get_data["path"]).count("v1.0")>0:
             headers = list(get_data["headers"])
             get_headers_len=len(headers)
             #兼容
@@ -118,10 +122,7 @@ def handler_process_data(id, insert_hash_tree_data):
 if __name__ == '__main__':
     # 输入用例id
     module_ids =[
-  "07ce2a2d-1184-4f5b-921a-42e4cdaf4ecc",
-  "fb35155c-21cf-438c-afb3-a548ac0d1021",
-  "acb42b11-88fc-4759-80f4-cd2c56c45e65",
-  "f123421e-c190-4b61-964d-12bb4c65d897"
+  "bc6d90ed-7476-4600-ab15-0c55022b8297"
 ]
 
     get_ids = MetersphereUtils.get_batch_ids(1, 50, module_ids)

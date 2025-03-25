@@ -10,25 +10,22 @@ view_filter_word = ["the auth info of transaction not found", "The number of mq 
                     "statement.activity.consume.msg.times.log.error"
                     ]
 
-trading_filter_word = ["error.charge.interest.auth",
+trading_filter_word = [#"error.charge.interest.auth",
                        "Transaction rolled back because it has been marked as rollback-only",
                        "installment | refundAllocation fail."  # 合理的用户级锁
     , "min.paid.statements.can.not.be.empty.after.ignore.non.dq.statement",
                        "Ignore task process",
                        "CertPathValidatorException"
-    , "Installment task processing occurs system error."
+    , "fix post date is before last statement date"
     , "Application run failed"
     , "post fail caused by auth apply status not pending"
     , "credit line is insufficient"
-    , "secretID",
-                       # "error.interest.comp.charge",
-                       # "unifiedChargeFacade chargeInterestWithoutCal error"
-                       # ,'Installment task processing occurs business error.',
-                       #    "13130011000017697126","post update left repay plan fail",
-                       # "Not statement date, repay plan can not be posted",
-                       # "13130011000018717238","flow process biz error！post date adjust fail"
+    , "secretID","rpc invoke error","Not in order status white list"
+    ,"statementDate.can.not.be.empty","SearchAccountRelationshipsRequest"
+
+
                        ]
-statement_filter_word = ["total.payment.amount.calc.error.",
+statement_filter_word = [
                          "Transaction rolled back because it has been marked as rollback-only.",
 
                          "DAY_CUT_SCHEDULE", ".aws.",
@@ -37,7 +34,10 @@ statement_filter_word = ["total.payment.amount.calc.error.",
                          "openFlag:credit.view.statement.list.no.activity.open.flag",
                          "Origin tx not exist",
                          "auth.transaction.not.exist",
-                         "13130011000020255946"
+                         "paymentStatement","handleAccountActivityFromPayment",
+                         "refund.apply.refund.error.", #//先post后授权，乱序引起先忽略
+                        "accountId.can.not.be.empty",#签约失败引起
+                        "StatementFileDataBatchTaskClusterStrategy",
                          # "error.payment.statement.",
                          # "error.statement.payment.",
                          #
@@ -68,13 +68,13 @@ if __name__ == '__main__':
                     if tmp_bool == False:
                         print(file_name)
                         print(get_read)
-                # elif "trading" in file_name:
-                #     for get_tmp in trading_filter_word:
-                #         if get_tmp in get_read:
-                #             tmp_bool=True
-                #     if tmp_bool == False:
-                #         print(file_name)
-                #         print(get_read)
+                elif "trading" in file_name:
+                    for get_tmp in trading_filter_word:
+                        if get_tmp in get_read:
+                            tmp_bool=True
+                    if tmp_bool == False:
+                        print(file_name)
+                        print(get_read)
                 elif "statement" in file_name:
                     for get_tmp in statement_filter_word:
                         if get_tmp in get_read:
