@@ -9,7 +9,7 @@ def report_data(id):
 if __name__ == '__main__':
     # 输入用例id
     #报告用例id，正在执行时
-    all_report_id="b94f5e95-8e50-4f1b-98b1-9397472dfdff"
+    all_report_id="58d5dd48-50f3-4d2c-8d01-27b8257b02be"
     # all_report_id="e49e1876-4792-4e0f-9b3f-577fca386f49"
     list_object = report_data(all_report_id)
     get_list=[]
@@ -17,11 +17,11 @@ if __name__ == '__main__':
         get_tmp={"id":str(get_one["id"]),"userId":str(get_one["userId"]),"reportId":str(get_one["reportId"]),"name":str(get_one["name"])}
         print(str(get_tmp) +",")
         get_list.append(get_tmp)
-    bool_is=True
-    # bool_is=False
+    # bool_is=True
+    bool_is=False
     if bool_is==False:
         #用例id
-        rerun_list=[]
-
+        rerun_list=[
+        ]
         result=MetersphereUtils.rerun_report_mul_plan_test(all_report_id,rerun_list)
         print(result)

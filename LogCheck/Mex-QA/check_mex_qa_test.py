@@ -1,8 +1,8 @@
 import time
 import subprocess
 # 执行一个Linux命令,如果出现returned non-zero exit status 1，是没有捞取到数据
-base_found='grep -C5 "Excep" logs/run/common-error.log.2025-03-14 '
-include_found='|grep "2025-03-14"'
+base_found='grep -C5 "Excep" logs/run/common-error.log '
+include_found='|grep "ERROR"'
 # unclude_found='|grep -v "charge.interst"|grep -v "sofa.rpc.core.exception"|grep -v "Ignore task process"|grep -v "MXDC20220000"|grep -v "urule-lb"'
 # total_found=base_found+include_found+unclude_found
 total_found=base_found+include_found

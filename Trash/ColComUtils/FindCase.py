@@ -1,6 +1,6 @@
 import json
 
-from ColInstallment import ColScenarioHandler
+from Trash.ColInstallment import ColScenarioHandler
 from MexInstallment import MetersphereUtils
 
 

@@ -375,7 +375,7 @@ def get_test_plan_report_all_running_detail_info(userId="admin"):
     s = request_http(s, accessKey, secretKey)
 
     url = host + "/track/task/center/list/1/20"
-    post_data={"triggerMode":"","executionStatus":"RUNNING","executor":"admin","projectId":"11406dc7-8340-401f-813f-3511a97d3fbb","userId":"admin","activeName":"SCENARIO"}
+    post_data={"triggerMode":"","executionStatus":"RUNNING","executor":userId,"projectId":"11406dc7-8340-401f-813f-3511a97d3fbb","userId":"admin","activeName":"SCENARIO"}
     pp = json.dumps(post_data)
     r = s.post(url, data=pp)
 

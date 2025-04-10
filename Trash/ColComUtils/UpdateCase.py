@@ -1,6 +1,6 @@
 import json
 
-from ColInstallment import ColScenarioHandler
+from Trash.ColInstallment import ColScenarioHandler
 
 
 def handler_update_name(id):
@@ -59,7 +59,7 @@ def handler_process(id):
     data["data"]["scenarioDefinition"]=result
     get_post_data=data["data"]
     # get_daa=json.dumps(get_post_data)
-    get_info_udpate=ColScenarioHandler.update_scenario_detail(get_post_data)
+    get_info_udpate= ColScenarioHandler.update_scenario_detail(get_post_data)
     print()
 
 if __name__ == '__main__':

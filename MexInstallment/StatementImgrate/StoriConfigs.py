@@ -37,7 +37,7 @@ def readCycle(day) :
                 dic[keys[j]] = value
             dic["DQTriggerDay"] = dic["dueDay"] + timedelta(days=1)
             cycleList.append(dic)
-        # print(cycleList)
+        print(cycleList)
     return cycleList
 
 def readUDI() : 

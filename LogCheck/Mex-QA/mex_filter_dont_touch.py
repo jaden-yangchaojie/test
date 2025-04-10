@@ -4,21 +4,22 @@ import sys
 import time
 import subprocess
 # 执行一个Linux命令,如果出现returned non-zero exit status 1，是没有捞取到数据
-view_filter_word=["the auth info of transaction not found","The number of mq delivery times is","transaction already posted"]
+view_filter_word=["the auth info of transaction not found","The number of mq delivery times is","transaction already posted"
+                  ,"transaction amount is error"]
 trading_filter_word=["error.charge.interest.auth",
-
                   "installment | refundAllocation fail."  #合理的用户级锁
                      ,"min.paid.statements.can.not.be.empty.after.ignore.non.dq.statement",
                      "Cannot get the service address of service",
                      "交易打标失败，根据expressionString获取expression缓存失败","spel 表达式解析失败"
-                     ,"fix post date is before last statement date","2025-0","2024-0","The txn cannot associate the order"
+                     ,"fix post date is before last statement date"
+    ,"The txn cannot associate the order","cardId.empty"
                      ]
 statement_filter_word=["total.payment.amount.calc.error.",
                        "Transaction rolled back because it has been marked as rollback-only.",
                        "error.payment.statement.",
                        "error.charge.interest.",
                        "error.statement.payment.","latest statement payment amount cover min payment amount"
-    ,"error.payAmount.more.than.unpaidAmount.","error.statement.cycle.blocked.","2025-0"]
+    ,"error.payAmount.more.than.unpaidAmount.","error.statement.cycle.blocked.","statement.is.not.generated"]
 if __name__ == '__main__':
     get_path=os.getcwd()
     print(get_path)

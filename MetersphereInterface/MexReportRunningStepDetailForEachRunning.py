@@ -6,7 +6,7 @@ import MetersphereUtils
 def running_process():
     for i in range(0, 100):
 
-        get_dict_ids_names=MetersphereUtils.get_test_plan_report_all_running_detail_info()
+        get_dict_ids_names=MetersphereUtils.get_test_plan_report_all_running_detail_info(userId="admin")
         if get_dict_ids_names==False:
             sleep(30)
             continue
@@ -19,6 +19,6 @@ def running_process():
         sleep(30)
 
 
-
+#userId需要才能看到对应的用例执行，默认admin
 if __name__ == '__main__':
     running_process()

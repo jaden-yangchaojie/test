@@ -1,10 +1,9 @@
 import json
 
-from ColInstallment import ColScenarioHandler
+from Trash.ColInstallment import ColScenarioHandler
 from MexInstallment import MetersphereUtils
 
 #模块化 组装用例
-import jsonpickle
 key = 'scenarioDefinition'
 def update(key,dict_data):
     #判断需要修改的key是否在初始字典中，在则修改
