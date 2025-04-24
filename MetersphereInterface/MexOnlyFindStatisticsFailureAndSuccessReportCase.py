@@ -39,6 +39,6 @@ def find_process(id):
 
 if __name__ == '__main__':
     # 输入用例id
-    get_list_id = get_batch_report_id("fdefaeb4-f439-461e-a9ab-8a95bd13fd84")
+    get_list_id = get_batch_report_id("58d5dd48-50f3-4d2c-8d01-27b8257b02be")
     for get_one_id in get_list_id:
         find_process(get_one_id)

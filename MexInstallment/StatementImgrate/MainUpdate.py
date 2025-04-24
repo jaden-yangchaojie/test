@@ -17,6 +17,10 @@ def handler_process(id):
     # StoriScenario.DefalutScenario(result).handleScenario(scenario=result)
     StoriScenario.StatementScenario(result).handleScenario(scenario=result)
     # print(result)
+    data["data"]["scenarioDefinition"] = result
+    get_post_data = data["data"]
+    get_info_udpate = MetersphereUtils.update_scenario_detail(get_post_data)
+    print(get_info_udpate)
 
 
 if __name__ == '__main__':

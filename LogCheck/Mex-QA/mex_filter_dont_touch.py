@@ -12,7 +12,7 @@ trading_filter_word=["error.charge.interest.auth",
                      "Cannot get the service address of service",
                      "交易打标失败，根据expressionString获取expression缓存失败","spel 表达式解析失败"
                      ,"fix post date is before last statement date"
-    ,"The txn cannot associate the order","cardId.empty"
+    ,"The txn cannot associate the order","cardId.empty","##ORDER TXN PARAM CHECK ERROR","##ORDER IDEMPOTENT ERROR##"
                      ]
 statement_filter_word=["total.payment.amount.calc.error.",
                        "Transaction rolled back because it has been marked as rollback-only.",

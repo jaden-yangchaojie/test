@@ -7,7 +7,7 @@ from StoriTrade import APPLY_NEW_Installment_RULES, PRINTradingListType, DayBala
 from StoriInstallment import Installment
 # from logger import logger
 from StoriBill import StoriBill
-from StoriLabel import StoriLabel, StoriDQFlag, StoriChargingFlag, StoriPaymentFlag, StoriChargingFlag, StoriStatementFlag, StoriTradingFlag, StoriAdjustmentFlag, StoriMinimumFlag, StoriFreeIntCouponFlag, StoriInstallmentFlag
+from StatementImgrate.NoUse.StoriLabel import StoriLabel, StoriDQFlag, StoriPaymentFlag, StoriChargingFlag, StoriStatementFlag, StoriTradingFlag, StoriAdjustmentFlag, StoriMinimumFlag, StoriFreeIntCouponFlag, StoriInstallmentFlag
 from StoriCif import StoriCif
 from typing import List, Dict
 

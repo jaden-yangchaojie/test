@@ -72,12 +72,11 @@ if __name__ == '__main__':
     # 输入用例id
 
     module_ids = [
-  "87343a4d-3a0c-43f5-9e35-0b4d45d0df33",
-  "66bb5ed9-9802-4ae3-b491-8733f9ebf8f8",
-  "74742167-1150-43a3-b19e-e46b154d533b",
-  "8b66890e-0e6a-4bee-b22d-826b9b5b5b7a",
-  "03a2c9e0-cb7a-4c70-ad0b-3025d86ecb30",
-  "c9bd4106-768f-4932-8dbe-4c8b47cbb37e"
+  "b2a54dc5-21f0-4aed-970b-037f1ef56cbe",
+  "28859d83-4947-4c45-94cb-01f5c41a6006",
+  "859a5a9f-29b9-4753-a891-953e62cfc2e8",
+  "c3865a04-64fc-4521-8082-6055466f97c3",
+  "ca631490-4ac2-472e-8519-a627bea50074"
 ]
 
     get_ids = MetersphereUtils.get_batch_ids(1, 50, module_ids)

@@ -9,7 +9,11 @@ is_updated=0
 def only_find(get_data, insert_hash_tree_data):
     if get_data["type"] == "HTTPSamplerProxy" and get_data["enable"] == True:
 
-        if str(get_data["path"]).count("/v1.0/credit/authorizations/posting") > 0 or str(get_data["path"]).count("/v1.0/credit/authorizations")>0 or str(get_data["path"]).count("/backoffice/dfl-ng/credit/authorizations/posting")>0 or  str(get_data["path"]).count("/transactions/authorizations")>0:
+        if (str(get_data["path"]).count("/v1.0/credit/authorizations/posting") > 0
+                or str(get_data["path"]).count("/v1.0/credit/authorizations")>0
+                or str(get_data["path"]).count("/backoffice/dfl-ng/credit/authorizations/posting")>0
+                or  str(get_data["path"]).count("/transactions/authorizations")>0
+                or str(get_data["path"]).count("/transactions/adjustments/credit")>0):
             print(str(get_data["path"]))
             get_body = get_data["body"]
             if str(get_body).count("PHYSICAL")>0:
@@ -34,8 +38,8 @@ def fibonacci_handler(result, insert_hash_tree_data):
 def handler_process_data(id, insert_hash_tree_data):
     global is_updated
     is_updated=0
-    scenario_id = MetersphereUtils.get_scenario_detail_id_by_search_id(id) if id.isdigit() else id
-    data = MetersphereUtils.get_scenario_detail_all_info(scenario_id)
+    # scenario_id = MetersphereUtils.get_scenario_detail_id_by_search_id(id) if id.isdigit() else id
+    data = MetersphereUtils.get_scenario_detail_all_info(id)
     get_sce_data = data.get("data").get("scenarioDefinition")
     result = json.loads(get_sce_data)
     # todo
@@ -56,9 +60,7 @@ def handler_process_data(id, insert_hash_tree_data):
 if __name__ == '__main__':
     # 输入用例id
 
-    module_ids =[
-  "991a79a0-2504-4bfe-886d-258f6f99569e"
-]
+    module_ids =[]
 
 
     get_ids = MetersphereUtils.get_batch_ids(1, 50, module_ids)

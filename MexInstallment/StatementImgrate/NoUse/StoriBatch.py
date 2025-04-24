@@ -6,7 +6,7 @@ import pandas as pd
 from typing import List
 # from styleframe import StyleFrame, Styler
 # from StoriView import StoriView
-from StoriPipeLine import StoriPipeLine
+from StatementImgrate.NoUse.StoriPipeLine import StoriPipeLine
 
 class StoriBatch :
     def __init__(self, dir="Scenario", fileNames = [], op = None, filterScenarios = None):
