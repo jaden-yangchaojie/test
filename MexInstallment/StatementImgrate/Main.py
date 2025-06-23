@@ -25,7 +25,7 @@ if __name__ == '__main__':
 #   "99031a6d-27a1-4065-9c40-5a0a06395177"
 # ]
 #     get_ids = get_batch_id_list(module_id)
-    get_ids=["2d593f1c-75fe-4bf2-9ea6-7eba288ee0ea"]
+    get_ids=["aeac9cff-295e-44a8-89d8-eb98aa5898c8"]
     for get_id in get_ids:
         handler_process(get_id)
         print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
