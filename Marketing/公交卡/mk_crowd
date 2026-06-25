@@ -1,0 +1,2 @@
+INSERT INTO `mk_crowd` (`tenant_id`,`entity_id`,`crowd_no`,`quantity`,`crowd_desc`,`create_time_local`,`create_time_utc`,`update_time_local`,`update_time_utc`,`type`,`crowd_rules`) VALUES
+('STMXFINCORE0','MXCC20220000','25010700100100111100000000247260','0','STC103 Bus card','2025-04-08 20:21:34','2025-04-09 02:21:34','2025-12-03 22:09:06','2025-12-04 04:09:06','DYNAMIC','{"productCode":"STC103","openDate":"2025-10-25T00:00:00","openEndDate":"2026-05-25T00:00:00"}');
