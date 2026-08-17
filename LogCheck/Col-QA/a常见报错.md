@@ -1,8 +1,0 @@
-2022-09-21 12:00:17.682 [ConsumeMessageThread_8] ERROR [,] c.s.f.c.shared.aspect.ExceptionHandler - clazzName:ChargeDataProcessFacadeImpl, methodName:handleReplaceMessage, args:[{"metadata":{"newCardRealId":"131300200001176313","params":{"card_replacement_reason":"LOST","card_replacement_fee":"2000","post_currency_code":"COP"}},"productId":"2001","entityId":"COCC20230000","eventAction":"CARD_REPLACEMENT","accountId":"13130011000011503130","productCode":"STCCOL001","cardId":"131300100001176113","contractId":"13130022090000602113","customerId":"1313001000006013","tenantId":"STCOFINCORE0","openDate":1663693216000,"accountBookId":"13130011000011504138","currencyCode":"COP","productType":"CREDIT"}], exception:error.get.card.by.id.
-
-
-# installment apply | flow process biz error！post date adjust fail 
-签约不是签到25
-
-installment | post | exception error.interest.comp.charge, java.lang.RuntimeException: error.interest.comp.charge
-多笔未出账还款-2024-12-22 07:59:45

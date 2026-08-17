@@ -1,0 +1,8 @@
+cffi==1.16.0
+docutils==0.20.1
+pip==24.0
+pycparser==2.21
+setuptools==68.2.2
+six==1.16.0
+wheel==0.43.0
+mysql-connector-python==9.4.0

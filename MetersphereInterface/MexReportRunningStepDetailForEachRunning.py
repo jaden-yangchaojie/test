@@ -5,7 +5,6 @@ import MetersphereUtils
 
 def running_process():
     for i in range(0, 100):
-
         get_dict_ids_names=MetersphereUtils.get_test_plan_report_all_running_detail_info(userId="admin")
         if get_dict_ids_names==False:
             sleep(30)

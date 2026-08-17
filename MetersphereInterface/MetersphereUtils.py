@@ -335,6 +335,23 @@ def get_test_plan_report_db_sce_failure_cases_report_ids2(get_id):
     return listObject
 
 
+def get_test_plan_report_db_sce_failure_cases_report_ids3(get_id):
+    s = requests.session()
+    s = request_http(s, accessKey, secretKey)
+
+    url = host + "/track/test/plan/report/db/{}".format(get_id)
+
+    r = s.get(url)
+    # scenarioAllCases
+    listObject = r.json().get("data").get("scenarioFailureCases")
+
+    if len(listObject) == 0:
+        print("没有搜索失败报告id")
+        sys.exit()
+
+    return listObject
+
+
 def get_test_plan_report_db_sce_failure_cases_and_unrun_cases_report_ids3(get_id):
     s = requests.session()
     s = request_http(s, accessKey, secretKey)
@@ -350,7 +367,7 @@ def get_test_plan_report_db_sce_failure_cases_and_unrun_cases_report_ids3(get_id
         listObject.append(get_one)
     if len(listObject) == 0:
         print("没有搜索该报告id")
-        sys.exit()
+
 
     return listObject
 
@@ -394,6 +411,45 @@ def get_test_plan_report_db_sce_failure_cases_and_unrun_and_success_cases_report
         sys.exit()
 
     return list_case_report_ids, list_case_case_ids
+
+
+def get_test_plan_report_db_sce_failure_cases_and_unrun_and_success_cases_report_ids6(get_id):
+    s = requests.session()
+    s = request_http(s, accessKey, secretKey)
+
+    url = host + "/track/test/plan/report/db/{}".format(get_id)
+
+    r = s.get(url)
+    get_data = r.json().get("data")
+    # scenarioAllCases
+    listObject = get_data.get('scenarioAllCases')
+
+    list_case_report_ids = jsonpath.jsonpath(listObject, "$..reportId")
+    list_case_case_ids = jsonpath.jsonpath(listObject, "$..caseId")
+    modulePaths = jsonpath.jsonpath(listObject, "$..modulePath")
+    if len(list_case_report_ids) == 0:
+        print("没有搜索该报告id")
+        sys.exit()
+
+    return list_case_report_ids, list_case_case_ids, modulePaths
+
+
+def get_test_plan_report_db_sce_failure_cases_and_unrun_and_success_cases_report_ids7(get_id):
+    s = requests.session()
+    s = request_http(s, accessKey, secretKey)
+
+    url = host + "/track/test/plan/report/db/{}".format(get_id)
+
+    r = s.get(url)
+    get_data = r.json().get("data")
+    # scenarioAllCases
+    listObject = get_data.get('scenarioAllCases')
+
+    if len(listObject) == 0:
+        print("没有搜索该报告id")
+        sys.exit()
+
+    return listObject
 
 
 def get_test_plan_report_running_report_test_ids(get_id):
@@ -707,8 +763,16 @@ def operating_log_get_source(sourceId="54eb3c5d-dd11-4342-bc20-e2af5cd9a3a6"):
     r = s.post(url, data=pp)
 
     return r.json()
+def operating_log_get_source_pageNo(sourceId="54eb3c5d-dd11-4342-bc20-e2af5cd9a3a6",pageNo=1):
+    s = requests.session()
+    s = request_http(s, accessKey, secretKey)
 
+    url = host + "/api/operating/log/get/source/{}/10".format(pageNo)
+    post_data = {"sourceId": sourceId, "modules": ["接口自动化", "Api automation", "接口自動化", "API_AUTOMATION"]}
+    pp = json.dumps(post_data)
+    r = s.post(url, data=pp)
 
+    return r.json()
 def report_step_id(step_id):
     s = requests.session()
     s = request_http(s, accessKey, secretKey)
@@ -719,6 +783,98 @@ def report_step_id(step_id):
     get_step_id_result = r.json().get("data")
 
     return get_step_id_result
+
+
+def add_module(level, parentId, name, projectId="11406dc7-8340-401f-813f-3511a97d3fbb"):
+    s = requests.session()
+    s = request_http(s, accessKey, secretKey)
+
+    url = host + "/api/api/automation/module/add"
+    # level=1不用写parentId，我们一般写level2、3
+    post_data = ""
+    if level == 1:
+        post_data = {"level": level, "type": "add", "name": name, "label": name, "projectId": projectId}
+    else:
+        post_data = {"level": level, "type": "add", "parentId": parentId, "name": name, "label": name,
+                     "projectId": projectId}
+    pp = json.dumps(post_data)
+    r = s.post(url, data=pp)
+
+    return r.json()
+
+
+def module_list(projectId="11406dc7-8340-401f-813f-3511a97d3fbb"):
+    s = requests.session()
+    s = request_http(s, accessKey, secretKey)
+
+    url = host + "/api/api/automation/module/list/" + projectId
+
+    post_data = {}
+    pp = json.dumps(post_data)
+    r = s.post(url, data=pp)
+
+    return r.json()
+
+
+def get_test_plan_report_list(project_id,search_name,page_no, page_size):
+    s = requests.session()
+    s = request_http(s, accessKey, secretKey)
+
+    url = host + "/track/test/plan/report/list/{}/{}".format(page_no, page_size)
+
+    post_data = {"components": [{"key": "name", "name": "MsTableSearchInput", "label": "commons.name",
+                                 "operator": {"value": "like", "options": [
+                                     {"label": "commons.adv_search.operators.like", "value": "like"},
+                                     {"label": "commons.adv_search.operators.not_like", "value": "not like"}]}},
+                                {"key": "testPlanName", "name": "MsTableSearchInput",
+                                 "label": "test_track.report.list.test_plan", "operator": {
+                                    "options": [{"label": "commons.adv_search.operators.like", "value": "like"},
+                                                {"label": "commons.adv_search.operators.not_like",
+                                                 "value": "not like"}]}},
+                                {"key": "creator", "name": "MsTableSearchSelect", "label": "api_test.creator",
+                                 "operator": {"options": [{"label": "commons.adv_search.operators.in", "value": "in"},
+                                                          {"label": "commons.adv_search.operators.not_in",
+                                                           "value": "not in"},
+                                                          {"label": "commons.adv_search.operators.current_user",
+                                                           "value": "current user"}]},
+                                 "options": {"url": "/user/project/member/list", "labelKey": "name", "valueKey": "id"},
+                                 "props": {"multiple": true}},
+                                {"key": "createTime", "name": "MsTableSearchDateTimePicker",
+                                 "label": "commons.create_time", "operator": {
+                                    "options": [{"label": "commons.adv_search.operators.between", "value": "between"},
+                                                {"label": "commons.adv_search.operators.gt", "value": "gt"},
+                                                {"label": "commons.adv_search.operators.lt", "value": "lt"}]}},
+                                {"key": "triggerMode", "name": "MsTableSearchSelect",
+                                 "label": "test_track.report.list.trigger_mode", "operator": {
+                                    "options": [{"label": "commons.adv_search.operators.in", "value": "in"},
+                                                {"label": "commons.adv_search.operators.not_in", "value": "not in"}]},
+                                 "options": [{"label": "test_track.report.trigger_mode.manual", "value": "manual"},
+                                             {"label": "commons.trigger_mode.schedule", "value": "SCHEDULE"},
+                                             {"label": "commons.trigger_mode.api", "value": "API"},
+                                             {"label": "api_test.automation.batch_execute", "value": "BATCH"}],
+                                 "props": {"multiple": true}},
+                                {"key": "status", "name": "MsTableSearchSelect", "label": "test_track.plan.plan_status",
+                                 "operator": {"options": [{"label": "commons.adv_search.operators.in", "value": "in"},
+                                                          {"label": "commons.adv_search.operators.not_in",
+                                                           "value": "not in"}]},
+                                 "options": [{"label": "Starting", "value": "Starting"},
+                                             {"label": "Running", "value": "Underway"},
+                                             {"label": "Completed", "value": "Completed"}],
+                                 "props": {"multiple": true}}], "selectAll": false, "unSelectIds": [],
+                 "orders": [{"name": "create_time", "type": "desc"}],
+                 "projectId": project_id,
+                 "name": search_name}
+    pp = json.dumps(post_data)
+    r = s.post(url, data=pp)
+
+    # scenarioAllCases
+    listObject =r.json().get("data").get("listObject")
+
+    if len(listObject) == 0:
+        print("没有搜索该报告id")
+        sys.exit()
+
+    return listObject
 
 
 if __name__ == '__main__':
