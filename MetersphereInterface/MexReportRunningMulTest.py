@@ -34,16 +34,12 @@ if __name__ == '__main__':
     if bool_is==False:
         #用例id
         rerun_list=[
-            {'id': '3eebe301-631c-4920-bd21-3be2b7d5a97d', 'userId': 'admin',
-             'reportId': '6403cb2f-b140-4cb7-9c13-46550b614769', 'name': 'copy_八期账单，duebucket6账单文件_173e',
-             'caseId': '2c2d3dba-6a0c-402e-8ff5-e67c715d960f'},
-            {'id': 'ac553cd0-3ade-4fea-ba17-11798745ef1e', 'userId': 'admin',
-             'reportId': 'e8127515-741c-491a-b5bf-1375c73fefbc',
-             'name': 'copy_二期账单，1期有争议费，DQ产生late fee后还款_0976',
-             'caseId': '4a00329a-c13c-4c5a-bb3e-195e1b57f0d5'},
-            {'id': '3b2fc57f-88f4-499a-b1da-e26572b566e5', 'userId': 'admin',
-             'reportId': '7e35fac9-0be8-457e-9e71-b0940a9ec07c', 'name': 'copy_二期账单，1期有争议费，完成最小还款_9756',
-             'caseId': 'acfeb89e-7e6e-42ed-a79d-329d27081595'},
+            {'id': '1aad1b3b-6268-4cf2-8f31-2fa8145c02f6', 'userId': 'admin',
+             'reportId': 'b91ce964-4008-4a38-9423-db7636dc8dbe',
+             'name': '第三期用例2.2，滞纳金direct收费，出账》完成最小还款，无DQ-》出账-》DQ-》溢缴款',
+             'caseId': '6f98e529-38b2-45de-a8f1-9859f8cd5c4e'},
+
+
         ]
 
         result=MetersphereUtils.rerun_report_mul_plan_test(all_report_id,rerun_list)
